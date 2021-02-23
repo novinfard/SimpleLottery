@@ -6,8 +6,8 @@ This is a funny Apple universal application that creates a lottery between defin
 
 ## Main Features
 - Define Nominees
-- Election Publisher with timer to update the result
-- Display the winner when the election rounds ended
+- Create an Election Publisher using a timer to update the result while lottery in progress
+- Display the winner when the lottery rounds ended
 
 ## Author
 **Soheil Novinfard** - [www.novinfard.com](https://www.novinfard.com)
