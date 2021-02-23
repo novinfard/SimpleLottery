@@ -15,6 +15,10 @@
 		F2D3895125E5785A00B40A8A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3892625E5785800B40A8A /* ContentView.swift */; };
 		F2D3895225E5785A00B40A8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D3892725E5785A00B40A8A /* Assets.xcassets */; };
 		F2D3895325E5785A00B40A8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D3892725E5785A00B40A8A /* Assets.xcassets */; };
+		F2D3896725E5791500B40A8A /* Nominee.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3896625E5791500B40A8A /* Nominee.swift */; };
+		F2D3896825E5791500B40A8A /* Nominee.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3896625E5791500B40A8A /* Nominee.swift */; };
+		F2D3896E25E579A400B40A8A /* ElectionPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3896D25E579A400B40A8A /* ElectionPublisher.swift */; };
+		F2D3896F25E579A400B40A8A /* ElectionPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3896D25E579A400B40A8A /* ElectionPublisher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,8 @@
 		F2D3894725E5785A00B40A8A /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2D3894B25E5785A00B40A8A /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		F2D3894D25E5785A00B40A8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2D3896625E5791500B40A8A /* Nominee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nominee.swift; sourceTree = "<group>"; };
+		F2D3896D25E579A400B40A8A /* ElectionPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectionPublisher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +106,8 @@
 			children = (
 				F2D3892525E5785800B40A8A /* SimpleLotteryApp.swift */,
 				F2D3892625E5785800B40A8A /* ContentView.swift */,
+				F2D3896D25E579A400B40A8A /* ElectionPublisher.swift */,
+				F2D3896625E5791500B40A8A /* Nominee.swift */,
 				F2D3892725E5785A00B40A8A /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -309,7 +317,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2D3895025E5785A00B40A8A /* ContentView.swift in Sources */,
+				F2D3896725E5791500B40A8A /* Nominee.swift in Sources */,
 				F2D3894E25E5785A00B40A8A /* SimpleLotteryApp.swift in Sources */,
+				F2D3896E25E579A400B40A8A /* ElectionPublisher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,7 +328,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2D3895125E5785A00B40A8A /* ContentView.swift in Sources */,
+				F2D3896825E5791500B40A8A /* Nominee.swift in Sources */,
 				F2D3894F25E5785A00B40A8A /* SimpleLotteryApp.swift in Sources */,
+				F2D3896F25E579A400B40A8A /* ElectionPublisher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
