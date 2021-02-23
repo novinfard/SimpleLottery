@@ -19,6 +19,8 @@
 		F2D3896825E5791500B40A8A /* Nominee.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3896625E5791500B40A8A /* Nominee.swift */; };
 		F2D3896E25E579A400B40A8A /* ElectionPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3896D25E579A400B40A8A /* ElectionPublisher.swift */; };
 		F2D3896F25E579A400B40A8A /* ElectionPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3896D25E579A400B40A8A /* ElectionPublisher.swift */; };
+		F2D3897525E59A9100B40A8A /* NomineeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3897425E59A9100B40A8A /* NomineeList.swift */; };
+		F2D3897625E59A9100B40A8A /* NomineeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3897425E59A9100B40A8A /* NomineeList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,7 @@
 		F2D3894D25E5785A00B40A8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2D3896625E5791500B40A8A /* Nominee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nominee.swift; sourceTree = "<group>"; };
 		F2D3896D25E579A400B40A8A /* ElectionPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectionPublisher.swift; sourceTree = "<group>"; };
+		F2D3897425E59A9100B40A8A /* NomineeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomineeList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +111,7 @@
 				F2D3892625E5785800B40A8A /* ContentView.swift */,
 				F2D3896D25E579A400B40A8A /* ElectionPublisher.swift */,
 				F2D3896625E5791500B40A8A /* Nominee.swift */,
+				F2D3897425E59A9100B40A8A /* NomineeList.swift */,
 				F2D3892725E5785A00B40A8A /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -317,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2D3895025E5785A00B40A8A /* ContentView.swift in Sources */,
+				F2D3897525E59A9100B40A8A /* NomineeList.swift in Sources */,
 				F2D3896725E5791500B40A8A /* Nominee.swift in Sources */,
 				F2D3894E25E5785A00B40A8A /* SimpleLotteryApp.swift in Sources */,
 				F2D3896E25E579A400B40A8A /* ElectionPublisher.swift in Sources */,
@@ -328,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2D3895125E5785A00B40A8A /* ContentView.swift in Sources */,
+				F2D3897625E59A9100B40A8A /* NomineeList.swift in Sources */,
 				F2D3896825E5791500B40A8A /* Nominee.swift in Sources */,
 				F2D3894F25E5785A00B40A8A /* SimpleLotteryApp.swift in Sources */,
 				F2D3896F25E579A400B40A8A /* ElectionPublisher.swift in Sources */,
