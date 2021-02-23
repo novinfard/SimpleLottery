@@ -63,9 +63,9 @@ fileprivate extension Nominee {
 
     var resultText: String {
         if blank == true {
-            return "😢 It was blank! \r\n The election has no winner!"
+            return "و بازی پوچ شد! 😢"
         } else {
-            return "🎉🤑 Congrats! \r\n You're the winner "
+            return "برنده خوشبخت امشب شما هستید! تبریک میگم! 🎉🤑"
         }
     }
 
