@@ -11,18 +11,18 @@ import Combine
 class LotteryRandomPublisher: ObservableObject {
     @Published var winner: LotteryPlayer
     @Published var lotteryDone: Bool = false
-    private let nomineeList: [LotteryPlayer]
+    private let playerList: [LotteryPlayer]
 
     private let maximumRounds = 10
     private let updateInterval: TimeInterval = 0.4
     private var cancellable: Cancellable?
     private var currentRound = 0
 
-    init(nomineeList: [LotteryPlayer]) {
-        precondition(!nomineeList.isEmpty)
+    init(playerList: [LotteryPlayer]) {
+        precondition(!playerList.isEmpty)
 
-        self.nomineeList = nomineeList
-        self.winner = nomineeList.randomElement()!
+        self.playerList = playerList
+        self.winner = playerList.randomElement()!
 
         self.startTimer()
     }
@@ -33,7 +33,7 @@ class LotteryRandomPublisher: ObservableObject {
             .publish(every: updateInterval, on: .main, in: .common)
             .autoconnect()
             .sink { [weak self] _ in
-                guard let self = self, let winner = self.selectNominee() else { return }
+                guard let self = self, let winner = self.selectedPlayer() else { return }
                 self.winner = winner
                 self.currentRound += 1
 
@@ -44,9 +44,9 @@ class LotteryRandomPublisher: ObservableObject {
             }
     }
 
-    private func selectNominee() -> LotteryPlayer? {
-        let newCandidate = nomineeList.randomElement()
-        guard newCandidate != winner else { return selectNominee() }
+    private func selectedPlayer() -> LotteryPlayer? {
+        let newCandidate = playerList.randomElement()
+        guard newCandidate != winner else { return selectedPlayer() }
         return newCandidate
     }
 

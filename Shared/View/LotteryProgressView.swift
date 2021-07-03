@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LotteryProgressView: View {
-    @ObservedObject var electionPublisher = LotteryRandomPublisher(nomineeList: [])
+    @ObservedObject var electionPublisher = LotteryRandomPublisher(playerList: [])
 
     var body: some View {
         VStack {
