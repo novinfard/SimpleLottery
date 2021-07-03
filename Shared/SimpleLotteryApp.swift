@@ -6,12 +6,28 @@
 //
 
 import SwiftUI
+import Combine
 
 @main
 struct SimpleLotteryApp: App {
+    private let presenter: LotteryPresenter
+    @ObservedObject private var viewModel: ObservableLottery
+    @State private var cancellable: AnyCancellable?
+
+    init() {
+        presenter = LotteryPresenterImplementation()
+        viewModel = ObservableLottery()
+    }
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(viewModel: viewModel)
+                .onAppear() {
+                    presenter.load()
+                    cancellable = presenter.modelPublisher.sink { model in
+                        $viewModel.model.wrappedValue = model
+                    }
+                }
         }
     }
 }

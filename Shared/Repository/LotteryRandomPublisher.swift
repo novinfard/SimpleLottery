@@ -1,5 +1,5 @@
 //
-//  ElectionPublisher.swift
+//  LotteryRandomPublisher.swift
 //  SimpleLottery
 //
 //  Created by Soheil  Novinfard on 23/02/2021.
@@ -8,17 +8,17 @@
 import Foundation
 import Combine
 
-class ElectionPublisher: ObservableObject {
-    @Published var winner: Nominee
-    @Published var electionDone: Bool = false
-    private let nomineeList: [Nominee]
+class LotteryRandomPublisher: ObservableObject {
+    @Published var winner: LotteryPlayer
+    @Published var lotteryDone: Bool = false
+    private let nomineeList: [LotteryPlayer]
 
     private let maximumRounds = 10
     private let updateInterval: TimeInterval = 0.4
     private var cancellable: Cancellable?
     private var currentRound = 0
 
-    init(nomineeList: [Nominee]) {
+    init(nomineeList: [LotteryPlayer]) {
         precondition(!nomineeList.isEmpty)
 
         self.nomineeList = nomineeList
@@ -38,16 +38,16 @@ class ElectionPublisher: ObservableObject {
                 self.currentRound += 1
 
                 if self.currentRound > self.maximumRounds {
-                    self.electionDone = true
+                    self.lotteryDone = true
                     self.cancellable?.cancel()
                 }
             }
     }
 
-    private func selectNominee() -> Nominee? {
-        let newCadidate = nomineeList.randomElement()
-        guard newCadidate != winner else { return selectNominee() }
-        return newCadidate
+    private func selectNominee() -> LotteryPlayer? {
+        let newCandidate = nomineeList.randomElement()
+        guard newCandidate != winner else { return selectNominee() }
+        return newCandidate
     }
 
 }

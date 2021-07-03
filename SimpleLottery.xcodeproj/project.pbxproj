@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F24A4EBF26837FA9003EAD29 /* LotteryProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24A4EBE26837FA9003EAD29 /* LotteryProgressView.swift */; };
+		F24A4EC026837FA9003EAD29 /* LotteryProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24A4EBE26837FA9003EAD29 /* LotteryProgressView.swift */; };
+		F24A4EC42683813E003EAD29 /* LotteryLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24A4EC32683813E003EAD29 /* LotteryLandingView.swift */; };
+		F24A4EC52683813E003EAD29 /* LotteryLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24A4EC32683813E003EAD29 /* LotteryLandingView.swift */; };
+		F24A4EC726838C90003EAD29 /* LotteryResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24A4EC626838C90003EAD29 /* LotteryResultView.swift */; };
+		F24A4EC826838C90003EAD29 /* LotteryResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24A4EC626838C90003EAD29 /* LotteryResultView.swift */; };
+		F24A4ECA26838E9A003EAD29 /* LotteryLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24A4EC926838E9A003EAD29 /* LotteryLoadingView.swift */; };
+		F24A4ECB26838E9A003EAD29 /* LotteryLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24A4EC926838E9A003EAD29 /* LotteryLoadingView.swift */; };
+		F24A4ECF2683AD79003EAD29 /* LotteryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24A4ECE2683AD79003EAD29 /* LotteryPresenter.swift */; };
+		F24A4ED02683AD79003EAD29 /* LotteryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24A4ECE2683AD79003EAD29 /* LotteryPresenter.swift */; };
 		F2D3894125E5785A00B40A8A /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3894025E5785A00B40A8A /* Tests_iOS.swift */; };
 		F2D3894C25E5785A00B40A8A /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3894B25E5785A00B40A8A /* Tests_macOS.swift */; };
 		F2D3894E25E5785A00B40A8A /* SimpleLotteryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3892525E5785800B40A8A /* SimpleLotteryApp.swift */; };
@@ -15,12 +25,10 @@
 		F2D3895125E5785A00B40A8A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3892625E5785800B40A8A /* ContentView.swift */; };
 		F2D3895225E5785A00B40A8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D3892725E5785A00B40A8A /* Assets.xcassets */; };
 		F2D3895325E5785A00B40A8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D3892725E5785A00B40A8A /* Assets.xcassets */; };
-		F2D3896725E5791500B40A8A /* Nominee.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3896625E5791500B40A8A /* Nominee.swift */; };
-		F2D3896825E5791500B40A8A /* Nominee.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3896625E5791500B40A8A /* Nominee.swift */; };
-		F2D3896E25E579A400B40A8A /* ElectionPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3896D25E579A400B40A8A /* ElectionPublisher.swift */; };
-		F2D3896F25E579A400B40A8A /* ElectionPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3896D25E579A400B40A8A /* ElectionPublisher.swift */; };
-		F2D3897525E59A9100B40A8A /* NomineeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3897425E59A9100B40A8A /* NomineeList.swift */; };
-		F2D3897625E59A9100B40A8A /* NomineeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3897425E59A9100B40A8A /* NomineeList.swift */; };
+		F2D3896725E5791500B40A8A /* LotteryPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3896625E5791500B40A8A /* LotteryPlayer.swift */; };
+		F2D3896825E5791500B40A8A /* LotteryPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3896625E5791500B40A8A /* LotteryPlayer.swift */; };
+		F2D3896E25E579A400B40A8A /* LotteryRandomPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3896D25E579A400B40A8A /* LotteryRandomPublisher.swift */; };
+		F2D3896F25E579A400B40A8A /* LotteryRandomPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3896D25E579A400B40A8A /* LotteryRandomPublisher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +49,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F24A4EBE26837FA9003EAD29 /* LotteryProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryProgressView.swift; sourceTree = "<group>"; };
+		F24A4EC32683813E003EAD29 /* LotteryLandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryLandingView.swift; sourceTree = "<group>"; };
+		F24A4EC626838C90003EAD29 /* LotteryResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryResultView.swift; sourceTree = "<group>"; };
+		F24A4EC926838E9A003EAD29 /* LotteryLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryLoadingView.swift; sourceTree = "<group>"; };
+		F24A4ECE2683AD79003EAD29 /* LotteryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryPresenter.swift; sourceTree = "<group>"; };
 		F2D3892525E5785800B40A8A /* SimpleLotteryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleLotteryApp.swift; sourceTree = "<group>"; };
 		F2D3892625E5785800B40A8A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F2D3892725E5785A00B40A8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -55,9 +68,8 @@
 		F2D3894725E5785A00B40A8A /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2D3894B25E5785A00B40A8A /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		F2D3894D25E5785A00B40A8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F2D3896625E5791500B40A8A /* Nominee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nominee.swift; sourceTree = "<group>"; };
-		F2D3896D25E579A400B40A8A /* ElectionPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectionPublisher.swift; sourceTree = "<group>"; };
-		F2D3897425E59A9100B40A8A /* NomineeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomineeList.swift; sourceTree = "<group>"; };
+		F2D3896625E5791500B40A8A /* LotteryPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryPlayer.swift; sourceTree = "<group>"; };
+		F2D3896D25E579A400B40A8A /* LotteryRandomPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryRandomPublisher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +104,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F24A4EC126837FE0003EAD29 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F2D3892725E5785A00B40A8A /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F24A4EC226837FF0003EAD29 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F2D3892625E5785800B40A8A /* ContentView.swift */,
+				F24A4EC32683813E003EAD29 /* LotteryLandingView.swift */,
+				F24A4EC926838E9A003EAD29 /* LotteryLoadingView.swift */,
+				F24A4EBE26837FA9003EAD29 /* LotteryProgressView.swift */,
+				F24A4EC626838C90003EAD29 /* LotteryResultView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F24A4ECC2683A384003EAD29 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				F2D3896D25E579A400B40A8A /* LotteryRandomPublisher.swift */,
+				F2D3896625E5791500B40A8A /* LotteryPlayer.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		F24A4ECD2683AA98003EAD29 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F24A4ECE2683AD79003EAD29 /* LotteryPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		F2D3891F25E5785800B40A8A = {
 			isa = PBXGroup;
 			children = (
@@ -108,11 +157,10 @@
 			isa = PBXGroup;
 			children = (
 				F2D3892525E5785800B40A8A /* SimpleLotteryApp.swift */,
-				F2D3892625E5785800B40A8A /* ContentView.swift */,
-				F2D3896D25E579A400B40A8A /* ElectionPublisher.swift */,
-				F2D3896625E5791500B40A8A /* Nominee.swift */,
-				F2D3897425E59A9100B40A8A /* NomineeList.swift */,
-				F2D3892725E5785A00B40A8A /* Assets.xcassets */,
+				F24A4EC226837FF0003EAD29 /* View */,
+				F24A4ECD2683AA98003EAD29 /* Presenter */,
+				F24A4ECC2683A384003EAD29 /* Repository */,
+				F24A4EC126837FE0003EAD29 /* Resources */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -321,10 +369,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2D3895025E5785A00B40A8A /* ContentView.swift in Sources */,
-				F2D3897525E59A9100B40A8A /* NomineeList.swift in Sources */,
-				F2D3896725E5791500B40A8A /* Nominee.swift in Sources */,
+				F24A4EBF26837FA9003EAD29 /* LotteryProgressView.swift in Sources */,
+				F24A4EC42683813E003EAD29 /* LotteryLandingView.swift in Sources */,
+				F2D3896725E5791500B40A8A /* LotteryPlayer.swift in Sources */,
+				F24A4ECF2683AD79003EAD29 /* LotteryPresenter.swift in Sources */,
+				F24A4ECA26838E9A003EAD29 /* LotteryLoadingView.swift in Sources */,
 				F2D3894E25E5785A00B40A8A /* SimpleLotteryApp.swift in Sources */,
-				F2D3896E25E579A400B40A8A /* ElectionPublisher.swift in Sources */,
+				F2D3896E25E579A400B40A8A /* LotteryRandomPublisher.swift in Sources */,
+				F24A4EC726838C90003EAD29 /* LotteryResultView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,10 +385,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2D3895125E5785A00B40A8A /* ContentView.swift in Sources */,
-				F2D3897625E59A9100B40A8A /* NomineeList.swift in Sources */,
-				F2D3896825E5791500B40A8A /* Nominee.swift in Sources */,
+				F24A4EC026837FA9003EAD29 /* LotteryProgressView.swift in Sources */,
+				F24A4EC52683813E003EAD29 /* LotteryLandingView.swift in Sources */,
+				F2D3896825E5791500B40A8A /* LotteryPlayer.swift in Sources */,
+				F24A4ED02683AD79003EAD29 /* LotteryPresenter.swift in Sources */,
+				F24A4ECB26838E9A003EAD29 /* LotteryLoadingView.swift in Sources */,
 				F2D3894F25E5785A00B40A8A /* SimpleLotteryApp.swift in Sources */,
-				F2D3896F25E579A400B40A8A /* ElectionPublisher.swift in Sources */,
+				F2D3896F25E579A400B40A8A /* LotteryRandomPublisher.swift in Sources */,
+				F24A4EC826838C90003EAD29 /* LotteryResultView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

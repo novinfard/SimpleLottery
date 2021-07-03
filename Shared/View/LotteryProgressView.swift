@@ -1,14 +1,14 @@
 //
-//  ContentView.swift
-//  Shared
+//  LotteryProgressView.swift
+//  SimpleLottery
 //
-//  Created by Soheil  Novinfard on 23/02/2021.
+//  Created by Soheil  Novinfard on 23/06/2021.
 //
 
 import SwiftUI
 
-struct ContentView: View {
-    @ObservedObject var electionPublisher = ElectionPublisher(nomineeList: Nominee.listOfNominee)
+struct LotteryProgressView: View {
+    @ObservedObject var electionPublisher = LotteryRandomPublisher(nomineeList: [])
 
     var body: some View {
         VStack {
@@ -24,45 +24,44 @@ struct ContentView: View {
                 .font(.title)
                 .fontWeight(.bold)
                 .foregroundColor(textColor)
-            Text("@" + electionPublisher.winner.user)
+            Text("@" + electionPublisher.winner.username)
                 .foregroundColor(textColor)
             Image(resultImageName)
                 .resizable()
                 .scaledToFit()
                 .frame(height: 200)
-
         }
     }
 
     var textColor: Color {
-        guard self.electionPublisher.electionDone else { return .black }
+        guard self.electionPublisher.lotteryDone else { return .black }
         return self.electionPublisher.winner.color
     }
 
     var resultImageName: String {
-        guard self.electionPublisher.electionDone else { return "" }
+        guard self.electionPublisher.lotteryDone else { return "" }
         return self.electionPublisher.winner.resultImageName
     }
 
     var descriptionText: String {
-        guard electionPublisher.electionDone else { return "" }
+        guard electionPublisher.lotteryDone else { return "" }
         return electionPublisher.winner.resultText
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct LotteryProgressView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        LotteryProgressView()
     }
 }
 
-fileprivate extension Nominee {
+fileprivate extension LotteryPlayer {
     var color: Color {
-        blank == true ? .red : .orange
+        void == true ? .red : .orange
     }
 
     var resultText: String {
-        if blank == true {
+        if void == true {
             return "😢 It was blank! \r\n The election has no winner!"
         } else {
             return "🎉🤑 Congrats! \r\n You're the winner "
@@ -70,6 +69,6 @@ fileprivate extension Nominee {
     }
 
     var resultImageName: String {
-        blank == true ? "oops" : "happy"
+        void == true ? "oops" : "happy"
     }
 }
