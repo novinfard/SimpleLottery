@@ -11,7 +11,7 @@ import Combine
 enum LotteryState {
     case notStarted
     case loadingData
-    case lotteryInProgress([LotteryPlayer])
+    case lotteryInProgress(LotteryProgressViewModel)
     case finished(LotteryResultViewModel)
 }
 
@@ -28,8 +28,8 @@ struct ContentView: View {
         case .loadingData:
             LotteryLoadingView()
 
-        case .lotteryInProgress(let players):
-            LotteryProgressView()
+        case .lotteryInProgress(let viewModel):
+            LotteryProgressView(viewModel: viewModel)
 
         case .finished(let model):
             LotteryResultView()

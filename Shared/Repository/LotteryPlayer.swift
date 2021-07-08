@@ -14,3 +14,31 @@ struct LotteryPlayer: Equatable {
     let regDate: Date
     let void: Bool
 }
+
+extension LotteryPlayer {
+    static let mockModelList: [LotteryPlayer] = [.mockModel, .mockModel2, .mockModel3]
+
+    static let mockModel = LotteryPlayer(
+        userId: 10,
+        name: "Test Name",
+        username: "test140",
+        regDate: Date(),
+        void: false
+    )
+
+    static let mockModel2 = LotteryPlayer(
+        userId: 35,
+        name: "Mammad",
+        username: "mamali",
+        regDate: Date(),
+        void: true
+    )
+
+    static let mockModel3 = LotteryPlayer(
+        userId: 44,
+        name: "Lopez",
+        username: "Lopenzono",
+        regDate: Date(),
+        void: true
+    )
+}

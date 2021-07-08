@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LotteryProgressView: View {
-    @ObservedObject var electionPublisher = LotteryRandomPublisher(playerList: [])
+    let viewModel: LotteryProgressViewModel
 
     var body: some View {
         VStack {
@@ -16,59 +16,34 @@ struct LotteryProgressView: View {
                 .font(.headline)
             Spacer()
                 .frame(height: 20)
-            Text(descriptionText)
+            Text(viewModel.descriptionText)
                 .font(.title)
                 .multilineTextAlignment(.center)
                 .padding(15)
-            Text(electionPublisher.winner.name)
+            Text(viewModel.playerName)
                 .font(.title)
                 .fontWeight(.bold)
-                .foregroundColor(textColor)
-            Text("@" + electionPublisher.winner.username)
-                .foregroundColor(textColor)
-            Image(resultImageName)
+                .foregroundColor(viewModel.textColor)
+            Text("@" + viewModel.playerUsername)
+                .foregroundColor(viewModel.textColor)
+            Image(viewModel.resultImageName)
                 .resizable()
                 .scaledToFit()
                 .frame(height: 200)
         }
     }
-
-    var textColor: Color {
-        guard self.electionPublisher.lotteryDone else { return .black }
-        return self.electionPublisher.winner.color
-    }
-
-    var resultImageName: String {
-        guard self.electionPublisher.lotteryDone else { return "" }
-        return self.electionPublisher.winner.resultImageName
-    }
-
-    var descriptionText: String {
-        guard electionPublisher.lotteryDone else { return "" }
-        return electionPublisher.winner.resultText
-    }
 }
 
 struct LotteryProgressView_Previews: PreviewProvider {
     static var previews: some View {
-        LotteryProgressView()
+        LotteryProgressView(viewModel: LotteryProgressViewModel.mapFrom(player: .mockModel))
     }
 }
 
-fileprivate extension LotteryPlayer {
-    var color: Color {
-        void == true ? .red : .orange
-    }
-
-    var resultText: String {
-        if void == true {
-            return "😢 It was blank! \r\n The election has no winner!"
-        } else {
-            return "🎉🤑 Congrats! \r\n You're the winner "
-        }
-    }
-
-    var resultImageName: String {
-        void == true ? "oops" : "happy"
-    }
+struct LotteryProgressViewModel {
+    var playerName: String
+    var playerUsername: String
+    var descriptionText: String
+    var resultImageName: String
+    var textColor: Color
 }

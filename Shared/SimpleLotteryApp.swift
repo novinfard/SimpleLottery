@@ -15,7 +15,10 @@ struct SimpleLotteryApp: App {
     @State private var cancellable: AnyCancellable?
 
     init() {
-        presenter = LotteryPresenterImplementation()
+        let useCase = ReadRandomPlayerUseCaseImplementation(
+            playerList: LotteryPlayer.mockModelList
+        )
+        presenter = LotteryPresenterImplementation(randomPlayerUseCase: useCase)
         viewModel = ObservableLottery()
     }
 

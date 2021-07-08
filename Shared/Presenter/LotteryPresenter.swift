@@ -6,9 +6,10 @@
 //
 
 import Combine
+import SwiftUI
 
 final class ObservableLottery: ObservableObject {
-    @Published var model: LotteryState = .loadingData
+    @Published var model: LotteryState
 
     init(model: LotteryState = .notStarted) {
         self.model = model
@@ -21,11 +22,57 @@ protocol LotteryPresenter {
 }
 
 class LotteryPresenterImplementation: LotteryPresenter {
+    let randomPlayerUseCase: ReadRandomPlayerUseCase
+
+    init(randomPlayerUseCase: ReadRandomPlayerUseCase) {
+        self.randomPlayerUseCase = randomPlayerUseCase
+    }
+
     var modelPublisher: AnyPublisher<LotteryState, Never> {
-        return Just<LotteryState>(.loadingData).eraseToAnyPublisher()
+        return randomPlayerUseCase
+            .modelPublisher
+            .map {
+                .lotteryInProgress(LotteryProgressViewModel.mapFrom(player: $0))
+            }
+            .eraseToAnyPublisher()
     }
 
     func load() {
-        // Do some stuff to load the model
+        randomPlayerUseCase.load()
+    }
+}
+
+// MARk: View Model Mappers
+extension LotteryProgressViewModel {
+    static func mapFrom(player: LotteryPlayer, lotteryDone: Bool = false) -> LotteryProgressViewModel {
+        let textColor = lotteryDone ?  player.color : .black
+        let resultImageName = lotteryDone ? player.resultImageName : ""
+        let descriptionText = lotteryDone ? player.resultText : ""
+
+        return LotteryProgressViewModel(
+            playerName: player.name,
+            playerUsername: player.username,
+            descriptionText: descriptionText,
+            resultImageName: resultImageName,
+            textColor: textColor
+        )
+    }
+}
+
+fileprivate extension LotteryPlayer {
+    var color: Color {
+        void == true ? .red : .orange
+    }
+
+    var resultText: String {
+        if void == true {
+            return "😢 It was blank! \r\n The election has no winner!"
+        } else {
+            return "🎉🤑 Congrats! \r\n You're the winner "
+        }
+    }
+
+    var resultImageName: String {
+        void == true ? "oops" : "happy"
     }
 }
