@@ -10,7 +10,7 @@ import Combine
 
 enum LotteryPresenterState {
     case notStarted
-    case loadingData
+    case loading
     case lotteryInProgress(LotteryProgressViewModel)
     case finished(LotteryResultViewModel)
 }
@@ -22,10 +22,10 @@ struct ContentView: View {
         switch $viewModel.model.wrappedValue {
         case .notStarted:
             LotteryLandingView() {
-                $viewModel.model.wrappedValue = .loadingData
+                $viewModel.model.wrappedValue = .loading
             }
 
-        case .loadingData:
+        case .loading:
             LotteryLoadingView()
 
         case .lotteryInProgress(let viewModel):

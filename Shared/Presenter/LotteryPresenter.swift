@@ -22,23 +22,32 @@ protocol LotteryPresenter {
 }
 
 class LotteryPresenterImplementation: LotteryPresenter {
-    let randomPlayerUseCase: ReadRandomPlayerUseCase
+    private let lotteryUseCase: LotteryUseCase
 
-    init(randomPlayerUseCase: ReadRandomPlayerUseCase) {
-        self.randomPlayerUseCase = randomPlayerUseCase
+    init(lotteryUseCase: LotteryUseCase) {
+        self.lotteryUseCase = lotteryUseCase
     }
 
     var modelPublisher: AnyPublisher<LotteryPresenterState, Never> {
-        return randomPlayerUseCase
+        return lotteryUseCase
             .modelPublisher
             .map {
-                .lotteryInProgress(LotteryProgressViewModel.mapFrom(player: $0))
+                switch $0 {
+                case .notStarted:
+                    return .notStarted
+                case .loadingData:
+                    return .loading
+                case .lotteryInProgress(let player):
+                    return .lotteryInProgress(LotteryProgressViewModel.mapFrom(player: player, lotteryDone: false))
+                case .finished(let player):
+                    return .lotteryInProgress(LotteryProgressViewModel.mapFrom(player: player, lotteryDone: true))
+                }
             }
             .eraseToAnyPublisher()
     }
 
     func load() {
-        randomPlayerUseCase.load()
+        lotteryUseCase.load()
     }
 }
 

@@ -17,6 +17,7 @@
 		F24A4ECB26838E9A003EAD29 /* LotteryLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24A4EC926838E9A003EAD29 /* LotteryLoadingView.swift */; };
 		F24A4ECF2683AD79003EAD29 /* LotteryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24A4ECE2683AD79003EAD29 /* LotteryPresenter.swift */; };
 		F24A4ED02683AD79003EAD29 /* LotteryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24A4ECE2683AD79003EAD29 /* LotteryPresenter.swift */; };
+		F275F5AE26AF8CC7004A1DED /* LotteryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F275F5AD26AF8CC7004A1DED /* LotteryUseCase.swift */; };
 		F2D3894125E5785A00B40A8A /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3894025E5785A00B40A8A /* Tests_iOS.swift */; };
 		F2D3894C25E5785A00B40A8A /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3894B25E5785A00B40A8A /* Tests_macOS.swift */; };
 		F2D3894E25E5785A00B40A8A /* SimpleLotteryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3892525E5785800B40A8A /* SimpleLotteryApp.swift */; };
@@ -53,6 +54,7 @@
 		F24A4EC626838C90003EAD29 /* LotteryResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryResultView.swift; sourceTree = "<group>"; };
 		F24A4EC926838E9A003EAD29 /* LotteryLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryLoadingView.swift; sourceTree = "<group>"; };
 		F24A4ECE2683AD79003EAD29 /* LotteryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryPresenter.swift; sourceTree = "<group>"; };
+		F275F5AD26AF8CC7004A1DED /* LotteryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryUseCase.swift; sourceTree = "<group>"; };
 		F2D3892525E5785800B40A8A /* SimpleLotteryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleLotteryApp.swift; sourceTree = "<group>"; };
 		F2D3892625E5785800B40A8A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F2D3892725E5785A00B40A8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 		F2D6CEFD26909E300025CDAC /* Use Case */ = {
 			isa = PBXGroup;
 			children = (
+				F275F5AD26AF8CC7004A1DED /* LotteryUseCase.swift */,
 				F2D6CEFE26909E950025CDAC /* ReadRandomPlayerUseCase.swift */,
 			);
 			path = "Use Case";
@@ -382,6 +385,7 @@
 				F2D3896725E5791500B40A8A /* LotteryPlayer.swift in Sources */,
 				F24A4ECF2683AD79003EAD29 /* LotteryPresenter.swift in Sources */,
 				F24A4ECA26838E9A003EAD29 /* LotteryLoadingView.swift in Sources */,
+				F275F5AE26AF8CC7004A1DED /* LotteryUseCase.swift in Sources */,
 				F2D3894E25E5785A00B40A8A /* SimpleLotteryApp.swift in Sources */,
 				F24A4EC726838C90003EAD29 /* LotteryResultView.swift in Sources */,
 			);
