@@ -9,15 +9,15 @@ import Combine
 import SwiftUI
 
 final class ObservableLottery: ObservableObject {
-    @Published var model: LotteryState
+    @Published var model: LotteryPresenterState
 
-    init(model: LotteryState = .notStarted) {
+    init(model: LotteryPresenterState = .notStarted) {
         self.model = model
     }
 }
 
 protocol LotteryPresenter {
-    var modelPublisher: AnyPublisher<LotteryState, Never> { get }
+    var modelPublisher: AnyPublisher<LotteryPresenterState, Never> { get }
     func load()
 }
 
@@ -28,7 +28,7 @@ class LotteryPresenterImplementation: LotteryPresenter {
         self.randomPlayerUseCase = randomPlayerUseCase
     }
 
-    var modelPublisher: AnyPublisher<LotteryState, Never> {
+    var modelPublisher: AnyPublisher<LotteryPresenterState, Never> {
         return randomPlayerUseCase
             .modelPublisher
             .map {

@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-enum LotteryState {
+enum LotteryPresenterState {
     case notStarted
     case loadingData
     case lotteryInProgress(LotteryProgressViewModel)
