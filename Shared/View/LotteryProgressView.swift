@@ -16,19 +16,13 @@ struct LotteryProgressView: View {
                 .font(.headline)
             Spacer()
                 .frame(height: 20)
-            Text(viewModel.descriptionText)
-                .font(.title)
-                .multilineTextAlignment(.center)
-                .padding(15)
             Text(viewModel.playerName)
                 .font(.title)
                 .fontWeight(.bold)
                 .foregroundColor(viewModel.textColor)
             Text("@" + viewModel.playerUsername)
                 .foregroundColor(viewModel.textColor)
-            Image(viewModel.resultImageName)
-                .resizable()
-                .scaledToFit()
+            Spacer()
                 .frame(height: 200)
         }
     }
@@ -43,7 +37,5 @@ struct LotteryProgressView_Previews: PreviewProvider {
 struct LotteryProgressViewModel {
     var playerName: String
     var playerUsername: String
-    var descriptionText: String
-    var resultImageName: String
     var textColor: Color
 }

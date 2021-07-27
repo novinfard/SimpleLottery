@@ -55,14 +55,10 @@ class LotteryPresenterImplementation: LotteryPresenter {
 extension LotteryProgressViewModel {
     static func mapFrom(player: LotteryPlayer) -> LotteryProgressViewModel {
         let textColor = Color.black
-        let resultImageName = ""
-        let descriptionText =  ""
 
         return LotteryProgressViewModel(
             playerName: player.name,
             playerUsername: player.username,
-            descriptionText: descriptionText,
-            resultImageName: resultImageName,
             textColor: textColor
         )
     }
