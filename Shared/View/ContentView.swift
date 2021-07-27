@@ -31,8 +31,8 @@ struct ContentView: View {
         case .lotteryInProgress(let viewModel):
             LotteryProgressView(viewModel: viewModel)
 
-        case .finished(let model):
-            LotteryResultView()
+        case .finished(let viewModel):
+            LotteryResultView(viewModel: viewModel)
         }
     }
 }

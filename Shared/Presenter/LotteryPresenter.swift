@@ -38,9 +38,9 @@ class LotteryPresenterImplementation: LotteryPresenter {
                 case .loadingData:
                     return .loading
                 case .lotteryInProgress(let player):
-                    return .lotteryInProgress(LotteryProgressViewModel.mapFrom(player: player, lotteryDone: false))
+                    return .lotteryInProgress(LotteryProgressViewModel.mapFrom(player: player))
                 case .finished(let player):
-                    return .lotteryInProgress(LotteryProgressViewModel.mapFrom(player: player, lotteryDone: true))
+                    return .finished(LotteryResultViewModel.mapFrom(player: player))
                 }
             }
             .eraseToAnyPublisher()
@@ -53,10 +53,10 @@ class LotteryPresenterImplementation: LotteryPresenter {
 
 // MARk: View Model Mappers
 extension LotteryProgressViewModel {
-    static func mapFrom(player: LotteryPlayer, lotteryDone: Bool = false) -> LotteryProgressViewModel {
-        let textColor = lotteryDone ?  player.color : .black
-        let resultImageName = lotteryDone ? player.resultImageName : ""
-        let descriptionText = lotteryDone ? player.resultText : ""
+    static func mapFrom(player: LotteryPlayer) -> LotteryProgressViewModel {
+        let textColor = Color.black
+        let resultImageName = ""
+        let descriptionText =  ""
 
         return LotteryProgressViewModel(
             playerName: player.name,
@@ -67,6 +67,23 @@ extension LotteryProgressViewModel {
         )
     }
 }
+
+extension LotteryResultViewModel {
+    static func mapFrom(player: LotteryPlayer) -> LotteryResultViewModel {
+        let textColor = player.color
+        let resultImageName = player.resultImageName
+        let descriptionText = player.resultText
+
+        return LotteryResultViewModel(
+            playerName: player.name,
+            playerUsername: player.username,
+            descriptionText: descriptionText,
+            resultImageName: resultImageName,
+            textColor: textColor
+        )
+    }
+}
+
 
 fileprivate extension LotteryPlayer {
     var color: Color {
