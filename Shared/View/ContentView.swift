@@ -17,12 +17,13 @@ enum LotteryPresenterState {
 
 struct ContentView: View {
     @ObservedObject var viewModel: ObservableLottery
+    @Binding var loadingRequested: Bool
 
     var body: some View {
         switch $viewModel.model.wrappedValue {
         case .notStarted:
             LotteryLandingView() {
-                $viewModel.model.wrappedValue = .loading
+                $loadingRequested.wrappedValue = true
             }
 
         case .loading:
@@ -39,6 +40,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: ObservableLottery())
+        ContentView(viewModel: ObservableLottery(model: .loading), loadingRequested: .constant(false))
     }
 }

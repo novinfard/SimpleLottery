@@ -13,6 +13,7 @@ struct SimpleLotteryApp: App {
     private let presenter: LotteryPresenter
     @ObservedObject private var viewModel: ObservableLottery
     @State private var cancellable: AnyCancellable?
+    @State var loadingRequested: Bool = false
 
     init() {
         let useCase = LotteryUseCaseImplementation(
@@ -27,11 +28,15 @@ struct SimpleLotteryApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: viewModel)
+            ContentView(viewModel: viewModel, loadingRequested: $loadingRequested)
                 .onAppear() {
-                    presenter.load()
                     cancellable = presenter.modelPublisher.sink { model in
                         $viewModel.model.wrappedValue = model
+                    }
+                }
+                .onChange(of: loadingRequested) { requested in
+                    if requested {
+                        presenter.load()
                     }
                 }
         }
