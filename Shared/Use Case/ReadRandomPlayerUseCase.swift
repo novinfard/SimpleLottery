@@ -8,57 +8,75 @@
 import Foundation
 import Combine
 
+/// The `Read Random Player` use-case emits random player
+/// `Load` method should be called to trigger the pipeline
+///
 protocol ReadRandomPlayerUseCase {
     var modelPublisher: AnyPublisher<LotteryPlayer, Never> { get }
     func load()
 }
 
+/// Random Player Pipeline configuration settings
+///
+///  - Parameter maximumRounds: Maximum rounds of emitting data
+///  - Parameter updateInterval: Time duration for each round  in seconds
+///
+struct RandomPlayerPipelineConfiguration {
+    let maximumRounds: Int
+    let updateInterval: TimeInterval
+}
+
+/// Create random pipeline of players based on the given player list
+///
+///  - Parameter playerList: List of players
+///  - Parameter configuration: Random pipeline's configuration
+///
 class ReadRandomPlayerUseCaseImplementation: ReadRandomPlayerUseCase, ObservableObject {
+    private let playerList: [LotteryPlayer]
+    private let configuration: RandomPlayerPipelineConfiguration
+
     var modelPublisher: AnyPublisher<LotteryPlayer, Never> {
-        return Just<LotteryPlayer>(selectedPlayer).eraseToAnyPublisher()
+        return trigger.eraseToAnyPublisher()
     }
+
+    private let trigger = PassthroughSubject<LotteryPlayer, Never>()
 
     func load() {
         self.startTimer()
     }
 
-    @Published var selectedPlayer: LotteryPlayer
-    @Published var lotteryDone: Bool = false
-    private let playerList: [LotteryPlayer]
-
-    private let maximumRounds = 10
-    private let updateInterval: TimeInterval = 0.4
     private var cancellable: Cancellable?
     private var currentRound = 0
 
-    init(playerList: [LotteryPlayer]) {
-        precondition(!playerList.isEmpty)
-
+    init(playerList: [LotteryPlayer],
+         configuration: RandomPlayerPipelineConfiguration = .defaultConfig) {
         self.playerList = playerList
-        self.selectedPlayer = playerList.randomElement()!
+        self.configuration = configuration
     }
 
     func startTimer() {
         self.cancellable?.cancel()
         self.cancellable = Timer
-            .publish(every: updateInterval, on: .main, in: .common)
+            .publish(every: configuration.updateInterval, on: .main, in: .common)
             .autoconnect()
             .sink { [weak self] _ in
-                guard let self = self, let winner = self.selectRandomPlayer() else { return }
-                self.selectedPlayer = winner
+                guard let self = self, let selectedPlayer = self.selectRandomPlayer() else { return }
                 self.currentRound += 1
+                self.trigger.send(selectedPlayer)
 
-                if self.currentRound > self.maximumRounds {
-                    self.lotteryDone = true
+                if self.currentRound > self.configuration.maximumRounds {
+                    self.trigger.send(completion: .finished)
                     self.cancellable?.cancel()
                 }
             }
     }
 
     private func selectRandomPlayer() -> LotteryPlayer? {
-        let newCandidate = playerList.randomElement()
-        guard newCandidate != selectedPlayer else { return selectRandomPlayer() }
-        return newCandidate
+        return playerList.randomElement()
     }
 
+}
+
+extension RandomPlayerPipelineConfiguration {
+    static let defaultConfig = RandomPlayerPipelineConfiguration(maximumRounds: 10, updateInterval: 0.4)
 }
