@@ -88,7 +88,7 @@ fileprivate extension LotteryPlayer {
 
     var resultText: String {
         if void == true {
-            return "😢 It was blank! \r\n The election has no winner!"
+            return "😢 It was blank! \r\n The lottery has no winner!"
         } else {
             return "🎉🤑 Congrats! \r\n You're the winner "
         }
