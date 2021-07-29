@@ -45,6 +45,7 @@ class BaseSessionTests: XCTestCase {
 
         wait(for: [expectation], timeout: 10)
 
+        // then
         XCTAssertNotNil(receivedError, "It should get completed with Error")
     }
 
@@ -75,6 +76,7 @@ class BaseSessionTests: XCTestCase {
 
         wait(for: [expectation], timeout: 10)
 
+        // then
         XCTAssertNil(receivedError, "It should get completed without Error")
         XCTAssertEqual(receivedResponse?.statusCode, 200)
         XCTAssertNotNil(receivedData)
