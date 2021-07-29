@@ -50,6 +50,9 @@
             </BuildableReference>
             <SkippedTests>
                <Test
+                  Identifier = "BaseSessionTests">
+               </Test>
+               <Test
                   Identifier = "LotteryListRepositoryE2ETests/test_whenUrlIsValid_returnsSuccessfully()">
                </Test>
                <Test
