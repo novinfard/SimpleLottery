@@ -35,6 +35,7 @@
 		F2E31CB726B20C7000E60330 /* usersInLottery.json in Resources */ = {isa = PBXBuildFile; fileRef = F2E31CB526B20C7000E60330 /* usersInLottery.json */; };
 		F2E31CBE26B2369E00E60330 /* LotteryListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E31CBC26B2361300E60330 /* LotteryListRepository.swift */; };
 		F2E31CC026B2388300E60330 /* LotteryListRepositoryE2ETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E31CBF26B2388300E60330 /* LotteryListRepositoryE2ETests.swift */; };
+		F2E31CC226B23B2D00E60330 /* LotteryListRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E31CC126B23B2D00E60330 /* LotteryListRepositoryTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		F2E31CB526B20C7000E60330 /* usersInLottery.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = usersInLottery.json; sourceTree = "<group>"; };
 		F2E31CBC26B2361300E60330 /* LotteryListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryListRepository.swift; sourceTree = "<group>"; };
 		F2E31CBF26B2388300E60330 /* LotteryListRepositoryE2ETests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotteryListRepositoryE2ETests.swift; sourceTree = "<group>"; };
+		F2E31CC126B23B2D00E60330 /* LotteryListRepositoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotteryListRepositoryTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 				F2DE526426B0C6DB00523D92 /* UserRepositoryE2ETests.swift */,
 				F2E31CBF26B2388300E60330 /* LotteryListRepositoryE2ETests.swift */,
 				F2E31CB126B20AC200E60330 /* UserRepositoryTests.swift */,
+				F2E31CC126B23B2D00E60330 /* LotteryListRepositoryTests.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 			files = (
 				F2E31CC026B2388300E60330 /* LotteryListRepositoryE2ETests.swift in Sources */,
 				F2E31CB226B20AC200E60330 /* UserRepositoryTests.swift in Sources */,
+				F2E31CC226B23B2D00E60330 /* LotteryListRepositoryTests.swift in Sources */,
 				F2DE527426B0CAA700523D92 /* UserRepositoryE2ETests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
