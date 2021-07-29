@@ -79,6 +79,6 @@ class LotteryListRepositoryTests: XCTestCase {
 
 extension LotteryListRepositoryImplementation {
     static func mockUrl() -> URL? {
-        return Bundle(for: LotteryListRepositoryTests.self).url(forResource: "users", withExtension: "json")
+        return Bundle(for: LotteryListRepositoryTests.self).url(forResource: "usersInLottery", withExtension: "json")
     }
 }
