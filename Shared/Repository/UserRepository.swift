@@ -33,15 +33,15 @@ protocol UserRepository {
 class UserRepositoryImplementation: UserRepository {
     private let session: URLSession
     private var urlTask: URLSessionDataTask?
-    private let endpoint: String
+    private let endpoint: URL?
 
-    init(session: URLSession, endpoint: String) {
+    init(session: URLSession, endpoint: URL?) {
         self.session = session
         self.endpoint = endpoint
     }
 
     var modelPublisher: AnyPublisher<[User], UserRepositoryError> {
-        guard let url = URL(string: endpoint) else {
+        guard let url = endpoint else {
             return Fail(error: UserRepositoryError.invalidUrl)
                 .eraseToAnyPublisher()
         }
@@ -52,14 +52,7 @@ class UserRepositoryImplementation: UserRepository {
         return session
             .dataTaskPublisher(for: url)
             .mapError { error in UserRepositoryError.responseError(error) }
-            .tryMap { element -> Data in
-                guard let httpResponse = element.response as? HTTPURLResponse,
-                      httpResponse.statusCode == 200 else {
-                    throw URLError(.badServerResponse)
-                }
-                return element.data
-            }
-            .mapError { error in UserRepositoryError.responseError(error) }
+            .map { $0.data }
             .decode(type: UserNetResponse.self, decoder: decoder)
             .map { $0.items }
             .mapError { error in UserRepositoryError.parseError(error) }

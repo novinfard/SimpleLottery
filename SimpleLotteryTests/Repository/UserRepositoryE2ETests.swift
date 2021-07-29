@@ -18,10 +18,12 @@ class UserRepositoryE2ETests: XCTestCase {
         subscriptions = []
     }
 
-    func test_whenUrlIsValid_returnsSuccessfully() {
+    func _test_whenUrlIsValid_returnsSuccessfully() {
+        let session = URLSession.shared
+        session.configuration.requestCachePolicy = .reloadIgnoringCacheData
         let sut = UserRepositoryImplementation(
-            session: .shared,
-            endpoint: AppConfig.userListEndPoint
+            session: session,
+            endpoint: URL(string: AppConfig.userListEndPoint)
         )
         var users = [User]()
 
