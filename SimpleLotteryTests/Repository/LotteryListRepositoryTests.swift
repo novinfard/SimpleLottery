@@ -68,8 +68,7 @@ class LotteryListRepositoryTests: XCTestCase {
     }
 
     private func createSUT() -> LotteryListRepository {
-        let session = URLSession.shared
-        session.configuration.requestCachePolicy = .reloadIgnoringCacheData
+        let session = BaseSessionMock()
         return LotteryListRepositoryImplementation(
             session: session,
             endpoint: LotteryListRepositoryImplementation.mockUrl()

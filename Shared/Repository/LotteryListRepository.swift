@@ -29,10 +29,10 @@ protocol LotteryListRepository {
 }
 
 class LotteryListRepositoryImplementation: LotteryListRepository {
-    private let session: URLSession
+    private let session: BaseSession
     private let endpoint: URL?
 
-    init(session: URLSession, endpoint: URL?) {
+    init(session: BaseSession, endpoint: URL?) {
         self.session = session
         self.endpoint = endpoint
     }
@@ -47,7 +47,7 @@ class LotteryListRepositoryImplementation: LotteryListRepository {
         decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601DateOnly)
 
         return session
-            .dataTaskPublisher(for: url)
+            .response(for: URLRequest(url: url))
             .mapError { error in LotteryListRepositoryError.responseError(error) }
             .map { $0.data }
             .decode(type: LotteryListNetResponse.self, decoder: decoder)

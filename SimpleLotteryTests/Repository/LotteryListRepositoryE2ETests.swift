@@ -19,8 +19,10 @@ class LotteryListRepositoryE2ETests: XCTestCase {
     }
 
     func test_whenUrlIsValid_returnsSuccessfully() {
-        let session = URLSession.shared
-        session.configuration.requestCachePolicy = .reloadIgnoringCacheData
+        let urlSession = URLSession.shared
+        urlSession.configuration.requestCachePolicy = .reloadIgnoringCacheData
+        let session = BaseSessionImplementation(urlSession: urlSession)
+
         let sut = LotteryListRepositoryImplementation(
             session: session,
             endpoint: URL(string: AppConfig.lotteryListEndPoint)
