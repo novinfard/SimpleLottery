@@ -12,7 +12,7 @@ protocol BaseSession {
     func response(for request: URLRequest) -> AnyPublisher<(response: HTTPURLResponse, data: Data), Error>
 }
 
-class BaseSessionImplementation {
+class BaseSessionImplementation: BaseSession {
     private let urlSession: URLSession
 
     init(urlSession: URLSession) {

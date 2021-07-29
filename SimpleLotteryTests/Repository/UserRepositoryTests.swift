@@ -69,8 +69,9 @@ class UserRepositoryTests: XCTestCase {
     }
 
     private func createSUT() -> UserRepository {
-        let session = URLSession.shared
-        session.configuration.requestCachePolicy = .reloadIgnoringCacheData
+        let urlSession = URLSession.shared
+        urlSession.configuration.requestCachePolicy = .reloadIgnoringCacheData
+        let session = BaseSessionMock(urlSession: urlSession)
         return UserRepositoryImplementation(
             session: session,
             endpoint: UserRepositoryImplementation.mockUrl()
@@ -81,5 +82,23 @@ class UserRepositoryTests: XCTestCase {
 extension UserRepositoryImplementation {
     static func mockUrl() -> URL? {
         return Bundle(for: UserRepositoryTests.self).url(forResource: "users", withExtension: "json")
+    }
+}
+
+
+class BaseSessionMock: BaseSession {
+    private let urlSession: URLSession
+
+    init(urlSession: URLSession) {
+        self.urlSession = urlSession
+    }
+
+    func response(for request: URLRequest) -> AnyPublisher<(response: HTTPURLResponse, data: Data), Error> {
+        return urlSession.dataTaskPublisher(for: request)
+            .tryMap { (data: Data, response: URLResponse) -> (response: HTTPURLResponse, data: Data) in
+                let fakeHttpURLResponse = HTTPURLResponse()
+                return (fakeHttpURLResponse, data)
+            }
+            .eraseToAnyPublisher()
     }
 }
