@@ -30,6 +30,9 @@
 		F2D3896825E5791500B40A8A /* LotteryPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3896625E5791500B40A8A /* LotteryPlayer.swift */; };
 		F2D6CEFF26909E950025CDAC /* ReadRandomPlayerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D6CEFE26909E950025CDAC /* ReadRandomPlayerUseCase.swift */; };
 		F2DE527426B0CAA700523D92 /* UserRepositoryE2ETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DE526426B0C6DB00523D92 /* UserRepositoryE2ETests.swift */; };
+		F2E31CB226B20AC200E60330 /* UserRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E31CB126B20AC200E60330 /* UserRepositoryTests.swift */; };
+		F2E31CB626B20C7000E60330 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = F2E31CB426B20C7000E60330 /* users.json */; };
+		F2E31CB726B20C7000E60330 /* usersInLottery.json in Resources */ = {isa = PBXBuildFile; fileRef = F2E31CB526B20C7000E60330 /* usersInLottery.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,9 @@
 		F2DE526426B0C6DB00523D92 /* UserRepositoryE2ETests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryE2ETests.swift; sourceTree = "<group>"; };
 		F2DE526A26B0CA7700523D92 /* SimpleLotteryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleLotteryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2DE526E26B0CA7700523D92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2E31CB126B20AC200E60330 /* UserRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryTests.swift; sourceTree = "<group>"; };
+		F2E31CB426B20C7000E60330 /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
+		F2E31CB526B20C7000E60330 /* usersInLottery.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = usersInLottery.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				F2DE526426B0C6DB00523D92 /* UserRepositoryE2ETests.swift */,
+				F2E31CB126B20AC200E60330 /* UserRepositoryTests.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -200,10 +207,20 @@
 		F2DE526B26B0CA7700523D92 /* SimpleLotteryTests */ = {
 			isa = PBXGroup;
 			children = (
+				F2E31CB326B20C7000E60330 /* json response test files */,
 				F2DE526326B0C6BF00523D92 /* Repository */,
 				F2DE526E26B0CA7700523D92 /* Info.plist */,
 			);
 			path = SimpleLotteryTests;
+			sourceTree = "<group>";
+		};
+		F2E31CB326B20C7000E60330 /* json response test files */ = {
+			isa = PBXGroup;
+			children = (
+				F2E31CB426B20C7000E60330 /* users.json */,
+				F2E31CB526B20C7000E60330 /* usersInLottery.json */,
+			);
+			path = "json response test files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,6 +340,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2E31CB626B20C7000E60330 /* users.json in Resources */,
+				F2E31CB726B20C7000E60330 /* usersInLottery.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +386,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2E31CB226B20AC200E60330 /* UserRepositoryTests.swift in Sources */,
 				F2DE527426B0CAA700523D92 /* UserRepositoryE2ETests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

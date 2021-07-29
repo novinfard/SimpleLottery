@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "userId": 10,
+      "name": "Jack Alexy",
+      "username": "JAlex",
+      "regDate": "2020-10-19"
+    },
+    {
+      "userId": 22,
+      "name": "Mr. Hashemi",
+      "username": "Hashaaa",
+      "regDate": "2019-08-19"
+    },
+    {
+      "userId": 4,
+      "name": "Mack",
+      "username": "mackMack13",
+      "regDate": "2018-10-02"
+    },
+    {
+      "userId": 18,
+      "name": "Pack",
+      "username": "packPackDom",
+      "regDate": "2018-04-12"
+    },
+    {
+      "userId": 182,
+      "name": "Mohsen",
+      "username": "AghaMohsen",
+      "regDate": "2020-04-12"
+    }
+  ]
+}

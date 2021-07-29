@@ -1,0 +1,20 @@
+{
+  "lotteryList": [
+    {
+      "userId": 10,
+      "void": false
+    },
+    {
+      "userId": 22,
+      "void": false
+    },
+    {
+      "userId": 4,
+      "void": false
+    },
+    {
+      "userId": 182,
+      "void": true
+    }
+  ]
+}
