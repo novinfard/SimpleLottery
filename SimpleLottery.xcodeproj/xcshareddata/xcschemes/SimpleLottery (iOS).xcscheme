@@ -47,6 +47,14 @@
                BlueprintName = "SimpleLotteryTests"
                ReferencedContainer = "container:SimpleLottery.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "LotteryListRepositoryE2ETests/test_whenUrlIsValid_returnsSuccessfully()">
+               </Test>
+               <Test
+                  Identifier = "UserRepositoryE2ETests/test_whenUrlIsValid_returnsSuccessfully()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>
