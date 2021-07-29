@@ -73,13 +73,13 @@ class UserRepositoryTests: XCTestCase {
         session.configuration.requestCachePolicy = .reloadIgnoringCacheData
         return UserRepositoryImplementation(
             session: session,
-            endpoint: UserRepositoryImplementation.mockRequest()
+            endpoint: UserRepositoryImplementation.mockUrl()
         )
     }
 }
 
 extension UserRepositoryImplementation {
-    static func mockRequest() -> URL? {
+    static func mockUrl() -> URL? {
         return Bundle(for: UserRepositoryTests.self).url(forResource: "users", withExtension: "json")
     }
 }
