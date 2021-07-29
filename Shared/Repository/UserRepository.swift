@@ -32,7 +32,6 @@ protocol UserRepository {
 
 class UserRepositoryImplementation: UserRepository {
     private let session: URLSession
-    private var urlTask: URLSessionDataTask?
     private let endpoint: URL?
 
     init(session: URLSession, endpoint: URL?) {
@@ -61,7 +60,7 @@ class UserRepositoryImplementation: UserRepository {
     }
 
     func load() {
-        urlTask?.resume()
+
     }
 }
 

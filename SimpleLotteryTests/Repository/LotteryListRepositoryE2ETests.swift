@@ -9,8 +9,8 @@ import XCTest
 import Combine
 @testable import SimpleLottery
 
-// User Repository End-to-End Tests
-class UserRepositoryE2ETests: XCTestCase {
+// Lottery List Repository End-to-End Tests
+class LotteryListRepositoryE2ETests: XCTestCase {
 
     private var subscriptions = Set<AnyCancellable>()
 
@@ -21,13 +21,13 @@ class UserRepositoryE2ETests: XCTestCase {
     func test_whenUrlIsValid_returnsSuccessfully() {
         let session = URLSession.shared
         session.configuration.requestCachePolicy = .reloadIgnoringCacheData
-        let sut = UserRepositoryImplementation(
+        let sut = LotteryListRepositoryImplementation(
             session: session,
-            endpoint: URL(string: AppConfig.userListEndPoint)
+            endpoint: URL(string: AppConfig.lotteryListEndPoint)
         )
-        var users = [User]()
+        var users = [LotteryUser]()
 
-        let expectation = expectation(description: "Expect to get a list of users")
+        let expectation = expectation(description: "Expect to get a list of users participated in lottery")
 
         sut.modelPublisher
             .sink(receiveCompletion: { completion in
@@ -44,7 +44,7 @@ class UserRepositoryE2ETests: XCTestCase {
 
         wait(for: [expectation], timeout: 10)
 
-        XCTAssertTrue(!users.isEmpty, "The list of returned users should not be empty")
+        XCTAssertTrue(!users.isEmpty, "The list of returned lottery users should not be empty")
     }
 
 }

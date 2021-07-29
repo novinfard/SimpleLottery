@@ -33,6 +33,8 @@
 		F2E31CB226B20AC200E60330 /* UserRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E31CB126B20AC200E60330 /* UserRepositoryTests.swift */; };
 		F2E31CB626B20C7000E60330 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = F2E31CB426B20C7000E60330 /* users.json */; };
 		F2E31CB726B20C7000E60330 /* usersInLottery.json in Resources */ = {isa = PBXBuildFile; fileRef = F2E31CB526B20C7000E60330 /* usersInLottery.json */; };
+		F2E31CBE26B2369E00E60330 /* LotteryListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E31CBC26B2361300E60330 /* LotteryListRepository.swift */; };
+		F2E31CC026B2388300E60330 /* LotteryListRepositoryE2ETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E31CBF26B2388300E60330 /* LotteryListRepositoryE2ETests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		F2E31CB126B20AC200E60330 /* UserRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryTests.swift; sourceTree = "<group>"; };
 		F2E31CB426B20C7000E60330 /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
 		F2E31CB526B20C7000E60330 /* usersInLottery.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = usersInLottery.json; sourceTree = "<group>"; };
+		F2E31CBC26B2361300E60330 /* LotteryListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryListRepository.swift; sourceTree = "<group>"; };
+		F2E31CBF26B2388300E60330 /* LotteryListRepositoryE2ETests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotteryListRepositoryE2ETests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +126,7 @@
 			children = (
 				F2D3896625E5791500B40A8A /* LotteryPlayer.swift */,
 				F275F5B526B0C2EC004A1DED /* UserRepository.swift */,
+				F2E31CBC26B2361300E60330 /* LotteryListRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				F2DE526426B0C6DB00523D92 /* UserRepositoryE2ETests.swift */,
+				F2E31CBF26B2388300E60330 /* LotteryListRepositoryE2ETests.swift */,
 				F2E31CB126B20AC200E60330 /* UserRepositoryTests.swift */,
 			);
 			path = Repository;
@@ -359,6 +365,7 @@
 				F24A4EBF26837FA9003EAD29 /* LotteryProgressView.swift in Sources */,
 				F24A4EC42683813E003EAD29 /* LotteryLandingView.swift in Sources */,
 				F2D3896725E5791500B40A8A /* LotteryPlayer.swift in Sources */,
+				F2E31CBE26B2369E00E60330 /* LotteryListRepository.swift in Sources */,
 				F24A4ECF2683AD79003EAD29 /* LotteryPresenter.swift in Sources */,
 				F24A4ECA26838E9A003EAD29 /* LotteryLoadingView.swift in Sources */,
 				F275F5AE26AF8CC7004A1DED /* LotteryUseCase.swift in Sources */,
@@ -386,6 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2E31CC026B2388300E60330 /* LotteryListRepositoryE2ETests.swift in Sources */,
 				F2E31CB226B20AC200E60330 /* UserRepositoryTests.swift in Sources */,
 				F2DE527426B0CAA700523D92 /* UserRepositoryE2ETests.swift in Sources */,
 			);
