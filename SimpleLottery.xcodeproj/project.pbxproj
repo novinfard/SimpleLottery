@@ -20,6 +20,8 @@
 		F275F5AE26AF8CC7004A1DED /* LotteryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F275F5AD26AF8CC7004A1DED /* LotteryUseCase.swift */; };
 		F275F5B326B0C265004A1DED /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F275F5B226B0C265004A1DED /* AppConfig.swift */; };
 		F275F5B626B0C2EC004A1DED /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F275F5B526B0C2EC004A1DED /* UserRepository.swift */; };
+		F2C2360926B360B7005E3360 /* BaseSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C2360826B360B7005E3360 /* BaseSession.swift */; };
+		F2C2360E26B369BC005E3360 /* BaseSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C2360D26B369BC005E3360 /* BaseSessionTests.swift */; };
 		F2D3894E25E5785A00B40A8A /* SimpleLotteryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3892525E5785800B40A8A /* SimpleLotteryApp.swift */; };
 		F2D3894F25E5785A00B40A8A /* SimpleLotteryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3892525E5785800B40A8A /* SimpleLotteryApp.swift */; };
 		F2D3895025E5785A00B40A8A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3892625E5785800B40A8A /* ContentView.swift */; };
@@ -57,6 +59,8 @@
 		F275F5AD26AF8CC7004A1DED /* LotteryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryUseCase.swift; sourceTree = "<group>"; };
 		F275F5B226B0C265004A1DED /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		F275F5B526B0C2EC004A1DED /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		F2C2360826B360B7005E3360 /* BaseSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSession.swift; sourceTree = "<group>"; };
+		F2C2360D26B369BC005E3360 /* BaseSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSessionTests.swift; sourceTree = "<group>"; };
 		F2D3892525E5785800B40A8A /* SimpleLotteryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleLotteryApp.swift; sourceTree = "<group>"; };
 		F2D3892625E5785800B40A8A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F2D3892725E5785A00B40A8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 				F2D3896625E5791500B40A8A /* LotteryPlayer.swift */,
 				F275F5B526B0C2EC004A1DED /* UserRepository.swift */,
 				F2E31CBC26B2361300E60330 /* LotteryListRepository.swift */,
+				F2C2360826B360B7005E3360 /* BaseSession.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 				F2E31CBF26B2388300E60330 /* LotteryListRepositoryE2ETests.swift */,
 				F2E31CB126B20AC200E60330 /* UserRepositoryTests.swift */,
 				F2E31CC126B23B2D00E60330 /* LotteryListRepositoryTests.swift */,
+				F2C2360D26B369BC005E3360 /* BaseSessionTests.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -368,6 +374,7 @@
 				F24A4EBF26837FA9003EAD29 /* LotteryProgressView.swift in Sources */,
 				F24A4EC42683813E003EAD29 /* LotteryLandingView.swift in Sources */,
 				F2D3896725E5791500B40A8A /* LotteryPlayer.swift in Sources */,
+				F2C2360926B360B7005E3360 /* BaseSession.swift in Sources */,
 				F2E31CBE26B2369E00E60330 /* LotteryListRepository.swift in Sources */,
 				F24A4ECF2683AD79003EAD29 /* LotteryPresenter.swift in Sources */,
 				F24A4ECA26838E9A003EAD29 /* LotteryLoadingView.swift in Sources */,
@@ -396,6 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2C2360E26B369BC005E3360 /* BaseSessionTests.swift in Sources */,
 				F2E31CC026B2388300E60330 /* LotteryListRepositoryE2ETests.swift in Sources */,
 				F2E31CB226B20AC200E60330 /* UserRepositoryTests.swift in Sources */,
 				F2E31CC226B23B2D00E60330 /* LotteryListRepositoryTests.swift in Sources */,
