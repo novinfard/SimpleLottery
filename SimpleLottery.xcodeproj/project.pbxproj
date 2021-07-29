@@ -22,6 +22,7 @@
 		F275F5B626B0C2EC004A1DED /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F275F5B526B0C2EC004A1DED /* UserRepository.swift */; };
 		F2C2360926B360B7005E3360 /* BaseSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C2360826B360B7005E3360 /* BaseSession.swift */; };
 		F2C2360E26B369BC005E3360 /* BaseSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C2360D26B369BC005E3360 /* BaseSessionTests.swift */; };
+		F2C2361026B373FE005E3360 /* BaseSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C2360F26B373FE005E3360 /* BaseSessionMock.swift */; };
 		F2D3894E25E5785A00B40A8A /* SimpleLotteryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3892525E5785800B40A8A /* SimpleLotteryApp.swift */; };
 		F2D3894F25E5785A00B40A8A /* SimpleLotteryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3892525E5785800B40A8A /* SimpleLotteryApp.swift */; };
 		F2D3895025E5785A00B40A8A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3892625E5785800B40A8A /* ContentView.swift */; };
@@ -61,6 +62,7 @@
 		F275F5B526B0C2EC004A1DED /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		F2C2360826B360B7005E3360 /* BaseSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSession.swift; sourceTree = "<group>"; };
 		F2C2360D26B369BC005E3360 /* BaseSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSessionTests.swift; sourceTree = "<group>"; };
+		F2C2360F26B373FE005E3360 /* BaseSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSessionMock.swift; sourceTree = "<group>"; };
 		F2D3892525E5785800B40A8A /* SimpleLotteryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleLotteryApp.swift; sourceTree = "<group>"; };
 		F2D3892625E5785800B40A8A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F2D3892725E5785A00B40A8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				F2E31CB126B20AC200E60330 /* UserRepositoryTests.swift */,
 				F2E31CC126B23B2D00E60330 /* LotteryListRepositoryTests.swift */,
 				F2C2360D26B369BC005E3360 /* BaseSessionTests.swift */,
+				F2C2360F26B373FE005E3360 /* BaseSessionMock.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				F2C2360E26B369BC005E3360 /* BaseSessionTests.swift in Sources */,
 				F2E31CC026B2388300E60330 /* LotteryListRepositoryE2ETests.swift in Sources */,
 				F2E31CB226B20AC200E60330 /* UserRepositoryTests.swift in Sources */,
+				F2C2361026B373FE005E3360 /* BaseSessionMock.swift in Sources */,
 				F2E31CC226B23B2D00E60330 /* LotteryListRepositoryTests.swift in Sources */,
 				F2DE527426B0CAA700523D92 /* UserRepositoryE2ETests.swift in Sources */,
 			);
