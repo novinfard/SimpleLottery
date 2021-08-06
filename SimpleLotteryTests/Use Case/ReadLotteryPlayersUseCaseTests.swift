@@ -65,20 +65,9 @@ class ReadLotteryPlayersUseCaseTests: XCTestCase {
     }
 
     func test_whenUserRepoReturnsEmpty_returnsEmpty() {
-        let session = BaseSessionMock()
-        let userRepo = StubUserRepository()
-        let lotteryListRepo = LotteryListRepositoryImplementation(
-            session: session,
-            endpoint: LotteryListRepositoryImplementation.mockUrl()
-        )
-
-        let sut = ReadLotteryPlayersUseCaseImplementation(
-            userRepository: userRepo,
-            lotteryListRepository: lotteryListRepo
-        )
+        let sut = createSUT(users: [])
 
         var users = [LotteryPlayer]()
-
         let expectation = expectation(description: "Expect to get a list of lottery players")
 
         sut.modelPublisher
@@ -100,20 +89,9 @@ class ReadLotteryPlayersUseCaseTests: XCTestCase {
     }
 
     func test_whenUserRepoReturnsOneValue_returnsOneValue() {
-        let session = BaseSessionMock()
-        let userRepo = StubUserRepository(users: [.fakeUserId10])
-        let lotteryListRepo = LotteryListRepositoryImplementation(
-            session: session,
-            endpoint: LotteryListRepositoryImplementation.mockUrl()
-        )
-
-        let sut = ReadLotteryPlayersUseCaseImplementation(
-            userRepository: userRepo,
-            lotteryListRepository: lotteryListRepo
-        )
+        let sut = createSUT(users: [.fakeUserId10])
 
         var users = [LotteryPlayer]()
-
         let expectation = expectation(description: "Expect to get a list of lottery players")
 
         sut.modelPublisher
@@ -135,20 +113,9 @@ class ReadLotteryPlayersUseCaseTests: XCTestCase {
     }
 
     func test_whenUserRepoReturnsDuplicateValues_returnsSingleValue() {
-        let session = BaseSessionMock()
-        let userRepo = StubUserRepository(users: [.fakeUserId10, .fakeUserId10])
-        let lotteryListRepo = LotteryListRepositoryImplementation(
-            session: session,
-            endpoint: LotteryListRepositoryImplementation.mockUrl()
-        )
-
-        let sut = ReadLotteryPlayersUseCaseImplementation(
-            userRepository: userRepo,
-            lotteryListRepository: lotteryListRepo
-        )
+        let sut = createSUT(users: [.fakeUserId10, .fakeUserId10])
 
         var users = [LotteryPlayer]()
-
         let expectation = expectation(description: "Expect to get a list of lottery players")
 
         sut.modelPublisher
@@ -167,6 +134,20 @@ class ReadLotteryPlayersUseCaseTests: XCTestCase {
         wait(for: [expectation], timeout: 10)
 
         XCTAssertEqual(users.count, 1, "The list of returned lottery players should contain 1 item")
+    }
+
+    private func createSUT(users: [User]) -> ReadLotteryPlayersUseCase {
+        let session = BaseSessionMock()
+        let userRepo = StubUserRepository(users: users)
+        let lotteryListRepo = LotteryListRepositoryImplementation(
+            session: session,
+            endpoint: LotteryListRepositoryImplementation.mockUrl()
+        )
+
+        return ReadLotteryPlayersUseCaseImplementation(
+            userRepository: userRepo,
+            lotteryListRepository: lotteryListRepo
+        )
     }
 
 }
