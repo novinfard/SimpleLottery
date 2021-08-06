@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F21BA00126BD232B003B2957 /* ReadLotteryPlayersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21BA00026BD232B003B2957 /* ReadLotteryPlayersUseCase.swift */; };
+		F21BA00426BD296F003B2957 /* ReadLotteryPlayersUseCaseE2ETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21BA00326BD296F003B2957 /* ReadLotteryPlayersUseCaseE2ETests.swift */; };
 		F24A4EBF26837FA9003EAD29 /* LotteryProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24A4EBE26837FA9003EAD29 /* LotteryProgressView.swift */; };
 		F24A4EC026837FA9003EAD29 /* LotteryProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24A4EBE26837FA9003EAD29 /* LotteryProgressView.swift */; };
 		F24A4EC42683813E003EAD29 /* LotteryLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24A4EC32683813E003EAD29 /* LotteryLandingView.swift */; };
@@ -52,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F21BA00026BD232B003B2957 /* ReadLotteryPlayersUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadLotteryPlayersUseCase.swift; sourceTree = "<group>"; };
+		F21BA00326BD296F003B2957 /* ReadLotteryPlayersUseCaseE2ETests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadLotteryPlayersUseCaseE2ETests.swift; sourceTree = "<group>"; };
 		F24A4EBE26837FA9003EAD29 /* LotteryProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryProgressView.swift; sourceTree = "<group>"; };
 		F24A4EC32683813E003EAD29 /* LotteryLandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryLandingView.swift; sourceTree = "<group>"; };
 		F24A4EC626838C90003EAD29 /* LotteryResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryResultView.swift; sourceTree = "<group>"; };
@@ -109,6 +113,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F21BA00226BD28E9003B2957 /* Use Case */ = {
+			isa = PBXGroup;
+			children = (
+				F21BA00326BD296F003B2957 /* ReadLotteryPlayersUseCaseE2ETests.swift */,
+			);
+			path = "Use Case";
+			sourceTree = "<group>";
+		};
 		F24A4EC126837FE0003EAD29 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +217,7 @@
 			children = (
 				F275F5AD26AF8CC7004A1DED /* LotteryUseCase.swift */,
 				F2D6CEFE26909E950025CDAC /* ReadRandomPlayerUseCase.swift */,
+				F21BA00026BD232B003B2957 /* ReadLotteryPlayersUseCase.swift */,
 			);
 			path = "Use Case";
 			sourceTree = "<group>";
@@ -225,8 +238,9 @@
 		F2DE526B26B0CA7700523D92 /* SimpleLotteryTests */ = {
 			isa = PBXGroup;
 			children = (
-				F2E31CB326B20C7000E60330 /* json response test files */,
+				F21BA00226BD28E9003B2957 /* Use Case */,
 				F2DE526326B0C6BF00523D92 /* Repository */,
+				F2E31CB326B20C7000E60330 /* json response test files */,
 				F2DE526E26B0CA7700523D92 /* Info.plist */,
 			);
 			path = SimpleLotteryTests;
@@ -372,6 +386,7 @@
 			files = (
 				F2D6CEFF26909E950025CDAC /* ReadRandomPlayerUseCase.swift in Sources */,
 				F2D3895025E5785A00B40A8A /* ContentView.swift in Sources */,
+				F21BA00126BD232B003B2957 /* ReadLotteryPlayersUseCase.swift in Sources */,
 				F275F5B626B0C2EC004A1DED /* UserRepository.swift in Sources */,
 				F275F5B326B0C265004A1DED /* AppConfig.swift in Sources */,
 				F24A4EBF26837FA9003EAD29 /* LotteryProgressView.swift in Sources */,
@@ -411,6 +426,7 @@
 				F2E31CB226B20AC200E60330 /* UserRepositoryTests.swift in Sources */,
 				F2C2361026B373FE005E3360 /* BaseSessionMock.swift in Sources */,
 				F2E31CC226B23B2D00E60330 /* LotteryListRepositoryTests.swift in Sources */,
+				F21BA00426BD296F003B2957 /* ReadLotteryPlayersUseCaseE2ETests.swift in Sources */,
 				F2DE527426B0CAA700523D92 /* UserRepositoryE2ETests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
