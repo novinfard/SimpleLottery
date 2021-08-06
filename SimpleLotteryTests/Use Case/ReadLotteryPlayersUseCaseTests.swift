@@ -66,7 +66,7 @@ class ReadLotteryPlayersUseCaseTests: XCTestCase {
 
     func test_whenUserRepoReturnsEmpty_returnsEmpty() {
         let session = BaseSessionMock()
-        let userRepo = StubUserRepositoryEmpty()
+        let userRepo = StubUserRepository()
         let lotteryListRepo = LotteryListRepositoryImplementation(
             session: session,
             endpoint: LotteryListRepositoryImplementation.mockUrl()
@@ -99,18 +99,63 @@ class ReadLotteryPlayersUseCaseTests: XCTestCase {
         XCTAssertTrue(users.isEmpty, "The list of returned lottery players should be empty")
     }
 
+    func test_whenUserRepoReturnsOneValue_returnsOneValue() {
+        let session = BaseSessionMock()
+        let userRepo = StubUserRepository(users: [.fakeUserId10])
+        let lotteryListRepo = LotteryListRepositoryImplementation(
+            session: session,
+            endpoint: LotteryListRepositoryImplementation.mockUrl()
+        )
+
+        let sut = ReadLotteryPlayersUseCaseImplementation(
+            userRepository: userRepo,
+            lotteryListRepository: lotteryListRepo
+        )
+
+        var users = [LotteryPlayer]()
+
+        let expectation = expectation(description: "Expect to get a list of lottery players")
+
+        sut.modelPublisher
+            .sink(receiveCompletion: { completion in
+                if case .failure(let error) = completion {
+                    XCTFail("Failed to return with error \(error)")
+                }
+                expectation.fulfill()
+            }, receiveValue: { receivedUserList in
+                users = receivedUserList
+            })
+            .store(in: &subscriptions)
+
+        sut.load()
+
+        wait(for: [expectation], timeout: 10)
+
+        XCTAssertEqual(users.count, 1, "The list of returned lottery players should contain 1 item")
+    }
+
 }
 
-
-struct StubUserRepositoryEmpty: UserRepository {
+struct StubUserRepository: UserRepository {
     private let users: [User]
     init(users: [User] = []) {
         self.users = users
     }
 
     var modelPublisher: AnyPublisher<[User], UserRepositoryError> {
-        return Just<[User]>([]).setFailureType(to: UserRepositoryError.self).eraseToAnyPublisher()
+        return Just<[User]>(users)
+            .setFailureType(to: UserRepositoryError.self)
+            .eraseToAnyPublisher()
     }
 
     func load() { }
+}
+
+extension User {
+    static let fakeUserId10 = User(
+        userId: 10,
+        name: "Fake Name 10",
+        username: "Fake User Name 10",
+        regDate: Date()
+    )
 }
