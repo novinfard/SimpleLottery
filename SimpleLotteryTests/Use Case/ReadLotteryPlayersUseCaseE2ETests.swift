@@ -57,6 +57,9 @@ class ReadLotteryPlayersUseCaseE2ETests: XCTestCase {
         wait(for: [expectation], timeout: 10)
 
         XCTAssertTrue(!users.isEmpty, "The list of returned lottery players should not be empty")
+
+        // As the list can be dynamic, hence the number of users expected to be different
+//        XCTAssertEqual(users.count, 4)
     }
 
 }

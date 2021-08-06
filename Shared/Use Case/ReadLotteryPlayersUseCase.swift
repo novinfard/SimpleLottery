@@ -60,6 +60,17 @@ struct ReadLotteryPlayersUseCaseImplementation {
 
 extension LotteryPlayer {
     static func mapListFrom(users: [User], lotteryList: [LotteryUser]) -> [LotteryPlayer] {
-        return []
+        let usersById: [Int: User] = Dictionary(uniqueKeysWithValues: users.map{ ($0.userId, $0) })
+
+        return lotteryList.compactMap { item in
+            guard let user = usersById[item.userId] else { return nil }
+            return LotteryPlayer(
+                userId: user.userId,
+                name: user.name,
+                username: user.username,
+                regDate: user.regDate,
+                void: item.void
+            )
+        }
     }
 }
