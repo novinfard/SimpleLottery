@@ -134,6 +134,41 @@ class ReadLotteryPlayersUseCaseTests: XCTestCase {
         XCTAssertEqual(users.count, 1, "The list of returned lottery players should contain 1 item")
     }
 
+    func test_whenUserRepoReturnsDuplicateValues_returnsSingleValue() {
+        let session = BaseSessionMock()
+        let userRepo = StubUserRepository(users: [.fakeUserId10, .fakeUserId10])
+        let lotteryListRepo = LotteryListRepositoryImplementation(
+            session: session,
+            endpoint: LotteryListRepositoryImplementation.mockUrl()
+        )
+
+        let sut = ReadLotteryPlayersUseCaseImplementation(
+            userRepository: userRepo,
+            lotteryListRepository: lotteryListRepo
+        )
+
+        var users = [LotteryPlayer]()
+
+        let expectation = expectation(description: "Expect to get a list of lottery players")
+
+        sut.modelPublisher
+            .sink(receiveCompletion: { completion in
+                if case .failure(let error) = completion {
+                    XCTFail("Failed to return with error \(error)")
+                }
+                expectation.fulfill()
+            }, receiveValue: { receivedUserList in
+                users = receivedUserList
+            })
+            .store(in: &subscriptions)
+
+        sut.load()
+
+        wait(for: [expectation], timeout: 10)
+
+        XCTAssertEqual(users.count, 1, "The list of returned lottery players should contain 1 item")
+    }
+
 }
 
 struct StubUserRepository: UserRepository {
