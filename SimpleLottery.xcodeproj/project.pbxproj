@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F21BA00126BD232B003B2957 /* ReadLotteryPlayersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21BA00026BD232B003B2957 /* ReadLotteryPlayersUseCase.swift */; };
 		F21BA00426BD296F003B2957 /* ReadLotteryPlayersUseCaseE2ETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21BA00326BD296F003B2957 /* ReadLotteryPlayersUseCaseE2ETests.swift */; };
+		F21BA00626BDD133003B2957 /* ReadLotteryPlayersUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21BA00526BDD133003B2957 /* ReadLotteryPlayersUseCaseTests.swift */; };
 		F24A4EBF26837FA9003EAD29 /* LotteryProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24A4EBE26837FA9003EAD29 /* LotteryProgressView.swift */; };
 		F24A4EC026837FA9003EAD29 /* LotteryProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24A4EBE26837FA9003EAD29 /* LotteryProgressView.swift */; };
 		F24A4EC42683813E003EAD29 /* LotteryLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24A4EC32683813E003EAD29 /* LotteryLandingView.swift */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		F21BA00026BD232B003B2957 /* ReadLotteryPlayersUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadLotteryPlayersUseCase.swift; sourceTree = "<group>"; };
 		F21BA00326BD296F003B2957 /* ReadLotteryPlayersUseCaseE2ETests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadLotteryPlayersUseCaseE2ETests.swift; sourceTree = "<group>"; };
+		F21BA00526BDD133003B2957 /* ReadLotteryPlayersUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadLotteryPlayersUseCaseTests.swift; sourceTree = "<group>"; };
 		F24A4EBE26837FA9003EAD29 /* LotteryProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryProgressView.swift; sourceTree = "<group>"; };
 		F24A4EC32683813E003EAD29 /* LotteryLandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryLandingView.swift; sourceTree = "<group>"; };
 		F24A4EC626838C90003EAD29 /* LotteryResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryResultView.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				F21BA00326BD296F003B2957 /* ReadLotteryPlayersUseCaseE2ETests.swift */,
+				F21BA00526BDD133003B2957 /* ReadLotteryPlayersUseCaseTests.swift */,
 			);
 			path = "Use Case";
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 			files = (
 				F2C2360E26B369BC005E3360 /* BaseSessionTests.swift in Sources */,
 				F2E31CC026B2388300E60330 /* LotteryListRepositoryE2ETests.swift in Sources */,
+				F21BA00626BDD133003B2957 /* ReadLotteryPlayersUseCaseTests.swift in Sources */,
 				F2E31CB226B20AC200E60330 /* UserRepositoryTests.swift in Sources */,
 				F2C2361026B373FE005E3360 /* BaseSessionMock.swift in Sources */,
 				F2E31CC226B23B2D00E60330 /* LotteryListRepositoryTests.swift in Sources */,
