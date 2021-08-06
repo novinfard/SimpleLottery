@@ -89,7 +89,7 @@ class ReadLotteryPlayersUseCaseTests: XCTestCase {
     }
 
     func test_whenUserRepoReturnsOneValue_returnsOneValue() {
-        let sut = createSUT(users: [.fakeUserId10])
+        let sut = createSUT(users: [.dummyUserId10])
 
         var users = [LotteryPlayer]()
         let expectation = expectation(description: "Expect to get a list of lottery players")
@@ -113,7 +113,7 @@ class ReadLotteryPlayersUseCaseTests: XCTestCase {
     }
 
     func test_whenUserRepoReturnsDuplicateValues_returnsSingleValue() {
-        let sut = createSUT(users: [.fakeUserId10, .fakeUserId10])
+        let sut = createSUT(users: [.dummyUserId10, .dummyUserId10])
 
         var users = [LotteryPlayer]()
         let expectation = expectation(description: "Expect to get a list of lottery players")
@@ -168,10 +168,10 @@ struct StubUserRepository: UserRepository {
 }
 
 extension User {
-    static let fakeUserId10 = User(
+    static let dummyUserId10 = User(
         userId: 10,
-        name: "Fake Name 10",
-        username: "Fake User Name 10",
+        name: "Dummy Name 10",
+        username: "Dummy User Name 10",
         regDate: Date()
     )
 }
