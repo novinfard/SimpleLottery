@@ -24,7 +24,7 @@ enum ReadLotteryPlayersUseCaseError: Error {
 }
 
 
-struct ReadLotteryPlayersUseCaseImplementation {
+struct ReadLotteryPlayersUseCaseImplementation: ReadLotteryPlayersUseCase {
     private let userRepository: UserRepository
     private let lotteryListRepository: LotteryListRepository
 
