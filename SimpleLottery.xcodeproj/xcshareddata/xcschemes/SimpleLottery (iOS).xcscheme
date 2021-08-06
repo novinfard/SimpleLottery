@@ -56,6 +56,9 @@
                   Identifier = "LotteryListRepositoryE2ETests/test_whenUrlIsValid_returnsSuccessfully()">
                </Test>
                <Test
+                  Identifier = "ReadLotteryPlayersUseCaseE2ETests">
+               </Test>
+               <Test
                   Identifier = "UserRepositoryE2ETests/test_whenUrlIsValid_returnsSuccessfully()">
                </Test>
             </SkippedTests>
