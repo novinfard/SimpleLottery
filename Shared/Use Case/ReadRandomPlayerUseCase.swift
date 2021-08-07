@@ -13,6 +13,7 @@ import Combine
 ///
 protocol ReadRandomPlayerUseCase {
     var modelPublisher: AnyPublisher<LotteryPlayer, Never> { get }
+    func updatePlayerList(_: [LotteryPlayer])
     func load()
 }
 
@@ -32,11 +33,15 @@ struct RandomPlayerPipelineConfiguration {
 ///  - Parameter configuration: Random pipeline's configuration
 ///
 class ReadRandomPlayerUseCaseImplementation: ReadRandomPlayerUseCase, ObservableObject {
-    private let playerList: [LotteryPlayer]
+    private var playerList: [LotteryPlayer]
     private let configuration: RandomPlayerPipelineConfiguration
 
     var modelPublisher: AnyPublisher<LotteryPlayer, Never> {
         return trigger.eraseToAnyPublisher()
+    }
+
+    func updatePlayerList(_ playerList: [LotteryPlayer]) {
+        self.playerList = playerList
     }
 
     private let trigger = PassthroughSubject<LotteryPlayer, Never>()
@@ -55,6 +60,7 @@ class ReadRandomPlayerUseCaseImplementation: ReadRandomPlayerUseCase, Observable
     }
 
     func startTimer() {
+        currentRound = 0
         self.cancellable?.cancel()
         self.cancellable = Timer
             .publish(every: configuration.updateInterval, on: .main, in: .common)
