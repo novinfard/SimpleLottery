@@ -10,6 +10,13 @@
 		F21BA00126BD232B003B2957 /* ReadLotteryPlayersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21BA00026BD232B003B2957 /* ReadLotteryPlayersUseCase.swift */; };
 		F21BA00426BD296F003B2957 /* ReadLotteryPlayersUseCaseE2ETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21BA00326BD296F003B2957 /* ReadLotteryPlayersUseCaseE2ETests.swift */; };
 		F21BA00626BDD133003B2957 /* ReadLotteryPlayersUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21BA00526BDD133003B2957 /* ReadLotteryPlayersUseCaseTests.swift */; };
+		F21BA00726BF5280003B2957 /* LotteryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F275F5AD26AF8CC7004A1DED /* LotteryUseCase.swift */; };
+		F21BA00826BF5283003B2957 /* ReadRandomPlayerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D6CEFE26909E950025CDAC /* ReadRandomPlayerUseCase.swift */; };
+		F21BA00926BF5285003B2957 /* ReadLotteryPlayersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21BA00026BD232B003B2957 /* ReadLotteryPlayersUseCase.swift */; };
+		F21BA00A26BF528C003B2957 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F275F5B526B0C2EC004A1DED /* UserRepository.swift */; };
+		F21BA00B26BF528C003B2957 /* LotteryListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E31CBC26B2361300E60330 /* LotteryListRepository.swift */; };
+		F21BA00C26BF5293003B2957 /* BaseSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C2360826B360B7005E3360 /* BaseSession.swift */; };
+		F21BA00D26BF52A9003B2957 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F275F5B226B0C265004A1DED /* AppConfig.swift */; };
 		F24A4EBF26837FA9003EAD29 /* LotteryProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24A4EBE26837FA9003EAD29 /* LotteryProgressView.swift */; };
 		F24A4EC026837FA9003EAD29 /* LotteryProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24A4EBE26837FA9003EAD29 /* LotteryProgressView.swift */; };
 		F24A4EC42683813E003EAD29 /* LotteryLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24A4EC32683813E003EAD29 /* LotteryLandingView.swift */; };
@@ -411,11 +418,18 @@
 			files = (
 				F2D3895125E5785A00B40A8A /* ContentView.swift in Sources */,
 				F24A4EC026837FA9003EAD29 /* LotteryProgressView.swift in Sources */,
+				F21BA00A26BF528C003B2957 /* UserRepository.swift in Sources */,
 				F24A4EC52683813E003EAD29 /* LotteryLandingView.swift in Sources */,
 				F2D3896825E5791500B40A8A /* LotteryPlayer.swift in Sources */,
 				F24A4ED02683AD79003EAD29 /* LotteryPresenter.swift in Sources */,
+				F21BA00D26BF52A9003B2957 /* AppConfig.swift in Sources */,
 				F24A4ECB26838E9A003EAD29 /* LotteryLoadingView.swift in Sources */,
+				F21BA00C26BF5293003B2957 /* BaseSession.swift in Sources */,
+				F21BA00B26BF528C003B2957 /* LotteryListRepository.swift in Sources */,
 				F2D3894F25E5785A00B40A8A /* SimpleLotteryApp.swift in Sources */,
+				F21BA00826BF5283003B2957 /* ReadRandomPlayerUseCase.swift in Sources */,
+				F21BA00926BF5285003B2957 /* ReadLotteryPlayersUseCase.swift in Sources */,
+				F21BA00726BF5280003B2957 /* LotteryUseCase.swift in Sources */,
 				F24A4EC826838C90003EAD29 /* LotteryResultView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
