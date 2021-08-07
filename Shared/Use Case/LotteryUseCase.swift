@@ -14,7 +14,7 @@ enum LotteryUseCaseError: Error {
 }
 
 enum LotteryUseCaseState {
-    case notStarted
+    case beginning
     case loadingData
     case errorHappened(LotteryUseCaseError)
     case lotteryInProgress(LotteryPlayer)
@@ -24,16 +24,20 @@ enum LotteryUseCaseState {
 protocol LotteryUseCase {
     var modelPublisher: AnyPublisher<LotteryUseCaseState, Never> { get }
     func load()
+    func startAgain()
 }
 
 class LotteryUseCaseImplementation: LotteryUseCase {
     private let randomPlayerUseCase: ReadRandomPlayerUseCase
+    private let lotteryPlayerUseCase: ReadLotteryPlayersUseCase
     private var cancellable: AnyCancellable?
     private var currentPlayer: LotteryPlayer?
 
-    init(randomPlayerUseCase: ReadRandomPlayerUseCase) {
+    init(randomPlayerUseCase: ReadRandomPlayerUseCase,
+         lotteryPlayerUseCase: ReadLotteryPlayersUseCase) {
         self.randomPlayerUseCase = randomPlayerUseCase
-        self.trigger.send(.notStarted)
+        self.lotteryPlayerUseCase = lotteryPlayerUseCase
+        self.trigger.send(.beginning)
     }
 
     var modelPublisher: AnyPublisher<LotteryUseCaseState, Never> {
@@ -43,19 +47,32 @@ class LotteryUseCaseImplementation: LotteryUseCase {
     private let trigger = PassthroughSubject<LotteryUseCaseState, Never>()
 
     func load() {
-        randomPlayerUseCase.load()
-
-        cancellable = randomPlayerUseCase
+        self.trigger.send(.loadingData)
+        cancellable = lotteryPlayerUseCase
             .modelPublisher
+            .flatMap { lotteryPlayers -> AnyPublisher<LotteryPlayer, Never> in
+                self.randomPlayerUseCase.updatePlayerList(lotteryPlayers)
+                return self.randomPlayerUseCase.modelPublisher
+            }
             .sink(receiveCompletion: { [weak self] completion in
-                guard let player = self?.currentPlayer else {
-                    assertionFailure("There should be a player in the pool")
-                    return
+                if case .failure(_) = completion {
+                    self?.trigger.send(.errorHappened(.connectivityIssue))
+                } else if let player = self?.currentPlayer {
+                    self?.trigger.send(.finished((player)))
+                } else {
+                    self?.trigger.send(.errorHappened(.emptyList))
                 }
-                self?.trigger.send(.finished((player)))
             }, receiveValue: { [weak self] player in
                 self?.currentPlayer = player
                 self?.trigger.send(.lotteryInProgress(player))
             })
+
+        lotteryPlayerUseCase.load()
+        randomPlayerUseCase.load()
+    }
+
+    func startAgain() {
+        trigger.send(.beginning)
+        currentPlayer = nil
     }
 }

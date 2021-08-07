@@ -11,7 +11,7 @@ import SwiftUI
 final class ObservableLottery: ObservableObject {
     @Published var model: LotteryPresenterState
 
-    init(model: LotteryPresenterState = .notStarted) {
+    init(model: LotteryPresenterState = .beginning) {
         self.model = model
     }
 }
@@ -19,6 +19,7 @@ final class ObservableLottery: ObservableObject {
 protocol LotteryPresenter {
     var modelPublisher: AnyPublisher<LotteryPresenterState, Never> { get }
     func load()
+    func startAgain()
 }
 
 class LotteryPresenterImplementation: LotteryPresenter {
@@ -33,10 +34,12 @@ class LotteryPresenterImplementation: LotteryPresenter {
             .modelPublisher
             .map {
                 switch $0 {
-                case .notStarted:
-                    return .notStarted
+                case .beginning:
+                    return .beginning
                 case .loadingData:
                     return .loading
+                case .errorHappened(let error):
+                    return .errorHappened(error.errorMessage)
                 case .lotteryInProgress(let player):
                     return .lotteryInProgress(LotteryProgressViewModel.mapFrom(player: player))
                 case .finished(let player):
@@ -49,9 +52,13 @@ class LotteryPresenterImplementation: LotteryPresenter {
     func load() {
         lotteryUseCase.load()
     }
+
+    func startAgain() {
+        lotteryUseCase.startAgain()
+    }
 }
 
-// MARk: View Model Mappers
+// MARK: View Model Mappers
 extension LotteryProgressViewModel {
     static func mapFrom(player: LotteryPlayer) -> LotteryProgressViewModel {
         let textColor = Color.black
@@ -80,6 +87,16 @@ extension LotteryResultViewModel {
     }
 }
 
+extension LotteryUseCaseError {
+    var errorMessage: String {
+        switch self {
+        case .connectivityIssue:
+            return "⚠️ There is a connectivity issue."
+        case .emptyList:
+            return "⚠️ Oops! The list of lottery players is empty."
+        }
+    }
+}
 
 fileprivate extension LotteryPlayer {
     var color: Color {

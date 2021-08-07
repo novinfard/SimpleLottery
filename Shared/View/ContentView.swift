@@ -9,21 +9,27 @@ import SwiftUI
 import Combine
 
 enum LotteryPresenterState {
-    case notStarted
+    case beginning
     case loading
+    case errorHappened(String)
     case lotteryInProgress(LotteryProgressViewModel)
     case finished(LotteryResultViewModel)
 }
 
 struct ContentView: View {
     @ObservedObject var viewModel: ObservableLottery
-    @Binding var loadingRequested: Bool
+    var presenter: LotteryPresenter?
 
     var body: some View {
         switch $viewModel.model.wrappedValue {
-        case .notStarted:
+        case .beginning:
             LotteryLandingView() {
-                $loadingRequested.wrappedValue = true
+                presenter?.load()
+            }
+
+        case .errorHappened(let error):
+            LotteryLandingView(errorMessage: error) {
+                presenter?.load()
             }
 
         case .loading:
@@ -33,13 +39,15 @@ struct ContentView: View {
             LotteryProgressView(viewModel: viewModel)
 
         case .finished(let viewModel):
-            LotteryResultView(viewModel: viewModel)
+            LotteryResultView(viewModel: viewModel) {
+                presenter?.startAgain()
+            }
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: ObservableLottery(model: .loading), loadingRequested: .constant(false))
+        ContentView(viewModel: ObservableLottery(model: .loading))
     }
 }

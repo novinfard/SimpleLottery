@@ -13,30 +13,37 @@ struct SimpleLotteryApp: App {
     private let presenter: LotteryPresenter
     @ObservedObject private var viewModel: ObservableLottery
     @State private var cancellable: AnyCancellable?
-    @State var loadingRequested: Bool = false
 
     init() {
+        let urlSession = URLSession.shared
+        urlSession.configuration.requestCachePolicy = .reloadIgnoringCacheData
+        let session = BaseSessionImplementation(urlSession: urlSession)
+
         let useCase = LotteryUseCaseImplementation(
             randomPlayerUseCase: ReadRandomPlayerUseCaseImplementation(
-                playerList: LotteryPlayer.mockModelList,
+                playerList: [],
                 configuration: .defaultConfig
+            ), lotteryPlayerUseCase: ReadLotteryPlayersUseCaseImplementation(
+                userRepository: UserRepositoryImplementation(
+                    session: session,
+                    endpoint: URL(string: AppConfig.userListEndPoint)
+                ), lotteryListRepository: LotteryListRepositoryImplementation(
+                    session: session,
+                    endpoint: URL(string: AppConfig.lotteryListEndPoint)
+                )
             )
         )
+
         presenter = LotteryPresenterImplementation(lotteryUseCase: useCase)
         viewModel = ObservableLottery()
     }
 
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: viewModel, loadingRequested: $loadingRequested)
+            ContentView(viewModel: viewModel, presenter: presenter)
                 .onAppear() {
                     cancellable = presenter.modelPublisher.sink { model in
                         $viewModel.model.wrappedValue = model
-                    }
-                }
-                .onChange(of: loadingRequested) { requested in
-                    if requested {
-                        presenter.load()
                     }
                 }
         }
