@@ -8,9 +8,15 @@
 import Foundation
 import Combine
 
+enum LotteryUseCaseError: Error {
+    case emptyList
+    case connectivityIssue
+}
+
 enum LotteryUseCaseState {
     case notStarted
     case loadingData
+    case errorHappened(LotteryUseCaseError)
     case lotteryInProgress(LotteryPlayer)
     case finished(LotteryPlayer)
 }
