@@ -32,11 +32,12 @@ struct LotteryResultView: View {
                 .scaledToFit()
                 .frame(height: 200)
 
-            Spacer()
-                .frame(height: 20)
-            Button("Back ⬅️") {
-                backAction()
-            }
+            // TODO: Fix the issue with start flow again
+//            Spacer()
+//                .frame(height: 20)
+//            Button("Back ⬅️") {
+//                backAction()
+//            }
         }
     }
 }
