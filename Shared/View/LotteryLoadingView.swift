@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LotteryLoadingView: View {
     var body: some View {
-        Text("LotteryLoadingView")
+        ProgressView("Loading ...")
     }
 }
 
