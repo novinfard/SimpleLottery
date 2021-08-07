@@ -12,6 +12,9 @@ struct LotteryProgressView: View {
 
     var body: some View {
         VStack {
+            Text("Lottery is live!")
+                .font(.subheadline)
+                .padding(40)
             Text("🏆 The winner is:")
                 .font(.headline)
             Spacer()
