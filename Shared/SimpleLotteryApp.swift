@@ -21,9 +21,9 @@ struct SimpleLotteryApp: App {
 
         let useCase = LotteryUseCaseImplementation(
             randomPlayerUseCase: ReadRandomPlayerUseCaseImplementation(
-                playerList: [],
                 configuration: .defaultConfig
-            ), lotteryPlayerUseCase: ReadLotteryPlayersUseCaseImplementation(
+            ),
+            lotteryPlayerUseCase: ReadLotteryPlayersUseCaseImplementation(
                 userRepository: UserRepositoryImplementation(
                     session: session,
                     endpoint: URL(string: AppConfig.userListEndPoint)

@@ -53,7 +53,7 @@ class ReadRandomPlayerUseCaseImplementation: ReadRandomPlayerUseCase, Observable
     private var cancellable: Cancellable?
     private var currentRound = 0
 
-    init(playerList: [LotteryPlayer],
+    init(playerList: [LotteryPlayer] = [],
          configuration: RandomPlayerPipelineConfiguration = .defaultConfig) {
         self.playerList = playerList
         self.configuration = configuration
