@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LotteryResultView: View {
     let viewModel: LotteryResultViewModel
+    let backAction: () -> Void
 
     var body: some View {
         VStack {
@@ -30,13 +31,19 @@ struct LotteryResultView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(height: 200)
+
+            Spacer()
+                .frame(height: 20)
+            Button("Back ⬅️") {
+                backAction()
+            }
         }
     }
 }
 
 struct LotteryResultView_Previews: PreviewProvider {
     static var previews: some View {
-        LotteryResultView(viewModel: LotteryResultViewModel.mapFrom(player: .mockModel))
+        LotteryResultView(viewModel: LotteryResultViewModel.mapFrom(player: .mockModel), backAction: {})
     }
 }
 
