@@ -7,8 +7,10 @@ This is a funny ios application that creates a lottery between defined players. 
 Let's first talk about the specification of the app we want to demonstrate the clean architecture in it.
 
 ## User Story
-As a user of the application I can tap on "Start the Lottery" button.
-- So I can see the name in the lottery list flipping
+As a user of the application:
+- I can tap on "Start the Lottery" button.
+- Then it will show me the loading indicator while the app fetch the data from the web services.
+- Then I can see the random name in the lottery list flipping
 - After 10 rounds the screen stops and draw the last name candidate for winning the lottery.
 - Unless the user is not "void" the drawn name is the winner. If the user is "void" the lottery doesn't have any winner!
 
@@ -90,6 +92,31 @@ The flow of the app demonstrated in the following diagram:
 
 As you can see user first the landing view (1) and by pressing the button the game starts. It firstly displays the loading view (2) when it tries to fetch the data from the two mentioned APIs and merge it into a list of lottery player data that the app expects to handle. In the next stage, a name of the player in the lottery appears on screen randomly in 10 rounds (3). Finally the last name will be drawn as the winner of the lottery, if the choice is not a void one (4).
 
+## Clean Architecture
+The proposed clean architecture in this article is derived from Uncle Bob's view on the software architecture [1] with modifying points for mobile applications' usability.
+![](https://cdn-images-1.medium.com/max/1200/1*d_HASZfBqk--3efUlOLuQw.png)
+
+## Repository
+Repository is the most underlaying component in the clean architecture. It encapsulates and abstracts the critical logic required for accessing most underlying elements like database, network, third-party libraries and iOS SDK frameworks and shared data and service elements (such as Facade and Service design pattern interfaces). In some articles, they call this layer "Entity" as well.
+
+## Use Case
+The bussiness logic of the app is mainly represents in Use Case. It maps the raw data coming from Repository to app domain data structures. It knows how, when and which repositories should combine to construct elements meaningful to the app. All changes in containing repositories should get observed and propagate to upper level component, Presenter.
+
+You may have heard about Interactor in VIPER and RIBs and VIP architecture. It encapsulates the business logic for the specific view or a group of views. This is responsibility that Use Case does in the proposed architecture and refer to the almost same thing.
+
+## Presenter
+The main responsibility of Presenter is handling changes occures to the view state. It observes the data changes in underlaying layer, Use Case, and maps it to corresponding view models. In addition, it gets the user action from upstream layer, View, and responds to these user requests. 
+
+An important note is that presenter is UI agnostic. Thus, we shouldn't see any dependency to UI frameworks such as UIKit or SwiftUI in the presenter layer.
+
+## View
+All UI components that we use in the app is kept in View layer. They are free from any business logic. They also constructs  in the way that the Presenter, the underlaying layer instructed them to in the view model. Moreover, all user actions in the view should relay to the presenter and the view itself should not decide on any reaction and response in these cases.
+
+## Clean Architecture design of the app
+The clean architecture layers of the app has been visualised in the below diagram:
+![](https://cdn-images-1.medium.com/max/1600/1*NTpuFdDSgoL-HKVTjX6FuQ.png)
+
+ 
 ## Author
 **Soheil Novinfard** - [www.novinfard.com](https://www.novinfard.com)
 
