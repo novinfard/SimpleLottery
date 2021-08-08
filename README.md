@@ -94,7 +94,8 @@ As you can see user first the landing view (1) and by pressing the button the ga
 
 ## Clean Architecture
 The proposed clean architecture in this article is derived from Uncle Bob's view on the software architecture [1] with modifying points for mobile applications' usability.
-![](https://cdn-images-1.medium.com/max/1200/1*d_HASZfBqk--3efUlOLuQw.png)
+
+<img src="https://cdn-images-1.medium.com/max/1200/1*d_HASZfBqk--3efUlOLuQw.png" width="400">
 
 ## Repository
 Repository is the most underlaying component in the clean architecture. It encapsulates and abstracts the critical logic required for accessing most underlying elements like database, network, third-party libraries and iOS SDK frameworks and shared data and service elements (such as Facade and Service design pattern interfaces). In some articles, they call this layer "Entity" as well.
