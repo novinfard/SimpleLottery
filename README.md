@@ -88,6 +88,7 @@ The void is a boolean indicator for "void" users, if the name drawn for them, th
 
 ## Application Flow
 The flow of the app demonstrated in the following diagram:
+
 ![](https://cdn-images-1.medium.com/max/1600/1*3xm0hZ-WgbA702Owod2D-A.png)
 
 As you can see user first the landing view (1) and by pressing the button the game starts. It firstly displays the loading view (2) when it tries to fetch the data from the two mentioned APIs and merge it into a list of lottery player data that the app expects to handle. In the next stage, a name of the player in the lottery appears on screen randomly in 10 rounds (3). Finally the last name will be drawn as the winner of the lottery, if the choice is not a void one (4).
@@ -115,6 +116,7 @@ All UI components that we use in the app is kept in View layer. They are free fr
 
 ## Clean Architecture design of the app
 The clean architecture layers of the app has been visualised in the below diagram:
+
 ![](https://cdn-images-1.medium.com/max/1600/1*NTpuFdDSgoL-HKVTjX6FuQ.png)
 
 ## References
