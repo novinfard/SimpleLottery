@@ -93,7 +93,7 @@ The flow of the app demonstrated in the following diagram:
 As you can see user first the landing view (1) and by pressing the button the game starts. It firstly displays the loading view (2) when it tries to fetch the data from the two mentioned APIs and merge it into a list of lottery player data that the app expects to handle. In the next stage, a name of the player in the lottery appears on screen randomly in 10 rounds (3). Finally the last name will be drawn as the winner of the lottery, if the choice is not a void one (4).
 
 ## Clean Architecture
-The proposed clean architecture in this article is derived from Uncle Bob's view on the software architecture [1] with modifying points for mobile applications' usability.
+The proposed clean architecture in this article is derived from Uncle Bob's view on the software architecture [1] with modifying points for mobile applications' usability [2].
 
 <img src="https://cdn-images-1.medium.com/max/1200/1*d_HASZfBqk--3efUlOLuQw.png" width="400">
 
@@ -117,6 +117,10 @@ All UI components that we use in the app is kept in View layer. They are free fr
 The clean architecture layers of the app has been visualised in the below diagram:
 ![](https://cdn-images-1.medium.com/max/1600/1*NTpuFdDSgoL-HKVTjX6FuQ.png)
 
+## References
+[1] [https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html]()
+
+[2] [https://crosp.net/blog/software-architecture/clean-architecture-part-2-the-clean-architecture/]()
  
 ## Author
 **Soheil Novinfard** - [www.novinfard.com](https://www.novinfard.com)
